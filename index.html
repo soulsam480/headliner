@@ -78,7 +78,13 @@
 </div>
       </body>
     
-      
+      <script>
+        if (!navigator.serviceWorker.controller) {
+            navigator.serviceWorker.register("/sw.js").then(function(reg) {
+                console.log("Service worker has been registered for scope: " + reg.scope);
+            });
+        }
+       </script>
 <script>   
 
   const url = 'https://newsapi.org/v2/top-headlines?country=in&pageSize=100&apiKey=05aefe5393fc46d7a6e21a27b16718c0'; // Get 10 random users
