@@ -13,6 +13,13 @@
             "sizes": "512x512"
           }
     ],
+    "prefer_related_applications": true,
+    "related_applications": [
+    {
+        "platform": "play",
+        "id": "com.google.samples.apps.iosched"
+    }
+    ],
     "start_url": "/index.html",
     "theme_color": "#ffffff",
     "background_color": "#ffffff",
