@@ -1,6 +1,6 @@
 // This is the "Offline page" service worker
 
-const CACHE = "pwabuilder-page";
+const CACHE = "head";
 
 // TODO: replace the following with the correct offline fallback page i.e.: const offlineFallbackPage = "offline.html";
 const offlineFallbackPage = "./offline.html";

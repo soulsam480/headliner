@@ -1,7 +1,7 @@
 {
     "name": "Headliner",
     "short_name": "Headliner",
-    "start_url": "/headliner/world.html",
+    "start_url": "/headliner",
     "theme_color": "#9cdff0",
     "background_color": "#c9f09c",
     "display": "standalone",
