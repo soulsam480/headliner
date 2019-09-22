@@ -78,13 +78,42 @@
     }
     .ad2hs-prompt{
       display: none;
-    }
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      padding-top: 100px; /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  text-align: center;
+  padding: 10px 0px 20px 0 ;
+  border-radius: 10px;
+  border: 1px solid #888;
+  width: 70%;
+  line-height: 1.7em
+}
 
     </style>
 </head>
 <body>
   <div class="ad2hs-prompt">
-    sdljbcksv
+      <div class="modal-content">
+        <img src="android-chrome-192x192.png" alt="" style="width:30%;margin:auto;padding:20px 0 0 0">
+          <p style="padding: 10px 20px 5px 20px; font-size:25px;">Add Headliner to your Home Screen ? </p>
+          <p style="padding: 10px 30px 5px 30px; font-size:15px;  line-height:1.5em">
+              Get to Headliner quickly by adding it to your home screen.
+          </p>
+          <hr>
+          <p>Click This Banner</p>
+          <hr>
+        </div>
+      
   </div>
     <div class="content">
        <nav style="text-align: center;">
@@ -140,8 +169,11 @@ function addToHomeScreen() {  var a2hsBtn = document.querySelector(".ad2hs-promp
   if (choiceResult.outcome === 'accepted') {
     console.log('User accepted the A2HS prompt');
   } else {
+    a2hsBtn.style.display = 'none';  // Show the prompt
+
     console.log('User dismissed the A2HS prompt');
   }
+  
 
   deferredPrompt = null;
 
