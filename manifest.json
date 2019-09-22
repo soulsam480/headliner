@@ -1,23 +1,33 @@
 {
     "name": "Headliner",
     "short_name": "Headliner",
-    "start_url": "/headliner",
-    "theme_color": "#9cdff0",
-    "background_color": "#c9f09c",
+    "description": "dummy application to demo manifest without SW",
+    "start_url": "index.html",
+    "scope": ".",
+    "background_color": "#EEE",
+    "theme_color": "#4A148C",
     "display": "standalone",
-    "orientation": "portrait",
-    "icons": [
-        {
-            "src": "/headliner/android-chrome-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "/headliner/icons-512.png",
-            "type": "image/png",
-            "sizes": "512x512"
-          }
-    ],
-    "prefer_related_applications": true
-   
-}
+    "orientation": "portrait-primary",
+    "dir": "ltr",
+    "lang": "en-US",
+    "related_applications": [
+  {
+     "platform": "play",
+     "url": "https://play.google.com/.../app_name",
+     "id": "com.example.app"
+  }
+ ],
+"icons": [
+    {
+        "src": "android-chrome-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+    },
+    {
+        "src": "icons-512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+  
+ ]
+} 
