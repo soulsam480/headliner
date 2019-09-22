@@ -12,4 +12,4 @@ The PWA functionality enables the user to  use the app frequently and makes the 
 
 This app is free of any kind of copyright and it runs on the free version of the two apis. 
 
-If you find any faults open and issue or mail me on sambitsahoojs@gmal.com. Thank You.
+If you find any faults open and issue or mail me on sambitsahoojs@gmail.com. Thank You.
