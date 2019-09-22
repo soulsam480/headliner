@@ -102,28 +102,29 @@
       </body>
     
 <script>
-  window.addEventListener("beforeinstallprompt", ev => { 
-  // Stop Chrome from asking _now_
-  ev.preventDefault();
-   // Update the install UI to remove the install button
-   document.querySelector('#install-button').disabled = true;
-        // Show the modal add to home screen dialog
-        installPromptEvent.prompt();
-        // Wait for the user to respond to the prompt
-        installPromptEvent.userChoice.then((choice) => {
-          if (choice.outcome === 'accepted') {
-            console.log('User accepted the A2HS prompt');
-          } else {
-            console.log('User dismissed the A2HS prompt');
-          }
-          // Clear the saved prompt since it can't be used again
-          installPromptEvent = null;
-        });
-  // Create your custom "add to home screen" button here if needed.
-  // Keep in mind that this event may be called multiple times, 
-  // so avoid creating multiple buttons!
-  myCustomButton.onclick = () => ev.prompt();
+var deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', function (e) {
+  // Prevent Chrome 67 and earlier from automatically showing the prompt
+  e.preventDefault();
+  // Stash the event so it can be triggered later.
+  deferredPrompt = e;
+
+  showAddToHomeScreen();
+
 });
+
+
+
+function showAddToHomeScreen() {
+
+var a2hsBtn = document.querySelector(".ad2hs-prompt");
+
+a2hsBtn.style.display = "block";
+
+a2hsBtn.addEventListener("click", addToHomeScreen);
+
+}
           
 </script>     
 <script>   
