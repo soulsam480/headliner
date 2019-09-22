@@ -101,7 +101,32 @@
 </div>
       </body>
     
-     
+<script>
+          let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+        // Stash the event so it can be triggered later.
+        deferredPrompt = e;
+        // Update UI notify the user they can add to home screen
+        showInstallPromotion();
+      });
+      btnInstall.addEventListener('click', () => {
+        // Update the install UI to remove the install button
+        document.querySelector('#install-button').disabled = true;
+        // Show the modal add to home screen dialog
+        installPromptEvent.prompt();
+        // Wait for the user to respond to the prompt
+        installPromptEvent.userChoice.then((choice) => {
+          if (choice.outcome === 'accepted') {
+            console.log('User accepted the A2HS prompt');
+          } else {
+            console.log('User dismissed the A2HS prompt');
+          }
+          // Clear the saved prompt since it can't be used again
+          installPromptEvent = null;
+        });
+      });
+
+</script>     
 <script>   
 
   const url = 'https://newsapi.org/v2/top-headlines?country=in&pageSize=100&apiKey=05aefe5393fc46d7a6e21a27b16718c0'; // Get 10 random users
