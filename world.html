@@ -53,6 +53,14 @@
     .nav-link:after{
       content: "";
     }
+    #news li img{
+        width: 100%;
+        height: auto;
+      }
+      #news li h3{
+        background-color: #fafafa8f;
+        padding: 0 0 10px 0;
+      }
 
     </style>
 </head>
@@ -101,11 +109,16 @@
     let authors = data.results;
     return authors.map(function(item) {
       let li = createNode('li'),
-          span = createNode('h4');
+          span = createNode('h3');
           p2 = createNode('p');
+          img = createNode('img');
+          
+      img.setAttribute("src", item.multimedia[4].url);
+
       span.innerHTML = `${item.title}`;
       p2.innerHTML = `${item.abstract + '<hr>'}`;
       append(li, span);
+      append(li,img);   
       append(li,p2);
       append(ul, li);
     })
