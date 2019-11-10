@@ -10,6 +10,8 @@ installable as a native android app.
 
 The PWA functionality enables the user to  use the app frequently and makes the process more convenient.
 
+I have added offline viewing capability so that it shows an offline.html page when there is no internet connection.
+
 This app is free of any kind of copyright and it runs on the free version of the two apis. 
 
 If you find any faults open and issue or mail me on sambitsahoojs@gmail.com. Thank You.
