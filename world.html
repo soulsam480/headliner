@@ -61,7 +61,9 @@
         background-color: #fafafa8f;
         padding: 0 0 10px 0;
       }
-
+#news li a{
+  color:blue;
+}
     </style>
 </head>
 <body>
@@ -105,21 +107,26 @@
     fetch(min)
   .then((resp) => resp.json()) // Transform the data into json
   .then(function(data) {
-    console.log(data)
+    console.log(data);
+    console.log(data.results[3]);
     let authors = data.results;
     return authors.map(function(item) {
       let li = createNode('li'),
           span = createNode('h3');
           p2 = createNode('p');
           img = createNode('img');
+          link = createNode('a');
           
       img.setAttribute("src", item.multimedia[3].url);
+      link.setAttribute("href", item.short_url);
 
       span.innerHTML = `${item.title}`;
-      p2.innerHTML = `${item.abstract + '<hr>'}`;
+      link.innerHTML = `${'Link to article ' + '<hr>'}`;
+      p2.innerHTML = `${item.abstract }`;
       append(li, span);
       append(li,img);   
       append(li,p2);
+      append(li,link);
       append(ul, li);
     })
 

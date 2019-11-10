@@ -119,7 +119,9 @@
         padding: 0 0 10px 0;
       }
 
-
+      #news li a {
+        color: blue;
+      }
     </style>
 </head>
 <body>
@@ -230,15 +232,18 @@ function addToHomeScreen() {  var a2hsBtn = document.querySelector(".ad2hs-promp
       let li = createNode('li'),
           h4 = createNode('h3');
           p2 = createNode('p');
-          img = createNode('img')
+          img = createNode('img');
+          link = createNode('a');
 
+      link.setAttribute("href", item.url);
       img.setAttribute("src", item.urlToImage);
       h4.innerHTML = `${item.title}`;
-      p2.innerHTML = `${item.description +  '<hr>'}`;
+      link.innerHTML = `${"Link to article >>" +  '<hr>'}`
+      p2.innerHTML = `${item.description }`;
       append(li, h4);
-      append(li,img)
-
+      append(li,img);
       append(li,p2);
+      append(li,link);
       append(ul, li);
     })
 
