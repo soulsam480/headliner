@@ -119,9 +119,11 @@
         padding: 0 0 10px 0;
       }
 
-      #news li a {
-        color: blue;
-      }
+      #news li a{
+      background-color: rgb(56, 56, 56);
+      color: white ;
+      padding: 2px;
+       }
     </style>
 </head>
 <body>
@@ -234,16 +236,21 @@ function addToHomeScreen() {  var a2hsBtn = document.querySelector(".ad2hs-promp
           p2 = createNode('p');
           img = createNode('img');
           link = createNode('a');
+          line = createNode('span');
+
 
       link.setAttribute("href", item.url);
       img.setAttribute("src", item.urlToImage);
       h4.innerHTML = `${item.title}`;
-      link.innerHTML = `${"Link to article >>" +  '<hr>'}`
+      link.innerHTML = `${"Link to article >>"}`
       p2.innerHTML = `${item.description }`;
+      line.innerHTML = `${'<hr>'}`;
+
       append(li, h4);
       append(li,img);
       append(li,p2);
       append(li,link);
+      append(li,line);
       append(ul, li);
     })
 
