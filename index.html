@@ -240,6 +240,7 @@ function addToHomeScreen() {  var a2hsBtn = document.querySelector(".ad2hs-promp
 
 
       link.setAttribute("href", item.url);
+      link.setAttribute("target", "_blank");
       img.setAttribute("src", item.urlToImage);
       h4.innerHTML = `${item.title}`;
       link.innerHTML = `${"Link to article >>"}`

@@ -1,7 +1,8 @@
 {
     "name": "Headliner",
     "short_name": "Headliner",
-    "description": "dummy application to demo manifest without SW",
+    "description": "A PWA to fetch news headlines from APIs",
+    "version": "3.0",
     "start_url": "index.html",
     "scope": ".",
     "background_color": "#4fd6b7",

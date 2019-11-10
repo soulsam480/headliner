@@ -110,7 +110,6 @@
   .then((resp) => resp.json()) // Transform the data into json
   .then(function(data) {
     console.log(data);
-    console.log(data.results[3]);
     let authors = data.results;
     return authors.map(function(item) {
       let li = createNode('li'),
