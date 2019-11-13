@@ -1,146 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="manifest.json">
-    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="apple-mobile-web-app-title" content="Headliner">
-    <meta name="application-name" content="Headliner">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
-    <title>Headliner | Read International Top Headlines </title>
-    <style> 
-      @import url('https://fonts.googleapis.com/css?family=Slabo+27px&display=swap');
-      html,body{
-        padding: 10px 10px 0 10px ;
-        margin: 0px;
-        font-family: 'Slabo 27px', serif;
-        letter-spacing: 2px;
-        line-height: 1.5em;
-    }
-    a{
-        color: black;
-        text-decoration: none;
-    }
-    h1,h2,h3,h4,h5,h6,p,ul,li{
-        padding: 0;
-        margin: 0;
-    }
-    .content{
-        max-width:1000px;
-        margin: auto;
-        text-align: justify;
-    }
-    ul{
-      list-style-type: none;
-    }
-    li{
-      padding: 0 0 10px 0;  
-    }
-    .nav-link{
-        display: inline ;
-        padding: 5px;
-        font-weight: 700;
-        font-size:18px;
-        color: black;
-        cursor: pointer;
-    }
-    .nav-link:after{
-      content: "";
-    }
-    #news li img{
-        width: 100%;
-        height: auto;
-      }
-      #news li h3{
-        background-color: #fafafa8f;
-        padding: 0 0 10px 0;
-      }
-    #news li a{
-      background-color: rgb(56, 56, 56);
-      color: white ;
-      padding: 2px;
-       }
-    </style>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5" />
+    <link rel="stylesheet" href="style.css" />
+    <meta name="apple-mobile-web-app-title" content="Headliner" />
+    <meta name="application-name" content="Headliner" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Headliner | Read International Top Headlines</title>
+  </head>
+  <body>
     <div class="content">
-       <nav style="text-align: center;">
-         <span class="nav-link"><a href="world.html">WORLD</a></span>
-         <span class="nav-link"><a href="index.html">INDIA</a></span>
+      <nav style="text-align: center;">
+        <span class="nav-link"><a href="world.html">WORLD</a></span>
+        <span class="nav-link"><a href="index.html">INDIA</a></span>
+        <span class="nav-link">
+          <label class="switch">
+            <input type="checkbox" onclick="dToggle()"/>
+            <span class="slider round"></span>
+          </label>
+        </span>
+      </nav>
+      <hr />
+      <br />
+      <div>
+        <ul id="news">
+          <h3 style="text-align: center;padding: 0 0 10px 0 ">
+            WORLD HEADLINES
+          </h3>
+        </ul>
+      </div>
 
-       </nav>
-       <hr>
-        <br>
-          <div>
-              <ul id="news">
-                  <h3 style="text-align: center;padding: 0 0 10px 0 ">WORLD HEADLINES</h3>
-                  
-        
-                </ul>
-          </div>
+      <p style="text-align: center; font-weight:700;">
+        Created With <a href="https://nytimes.com">NyTimes Api </a>By
+        <a href="https://sambitsahoo.cf">Sambit Sahoo</a>
+      </p>
+    </div>
+  </body>
+  <script>
+    const body = document.body;
+       function dToggle() {
+         body.classList.toggle("darkmode");
+       }</script>
 
-          <p style="text-align: center; font-weight:700;"> Created With <a href="https://nytimes.com">NyTimes Api  </a>By <a href="https://sambitsahoo.cf">Sambit Sahoo</a></p>
-</div>
+  <script>
+    const min =
+      "https://api.nytimes.com/svc/topstories/v2/world.json?api-key=l8XOQOnbwJiFJR8MynFGFcs14dQ48RZd"; // Get 10 random users
 
-      </body>
-     
-   
-<script>   
+    const ul = document.getElementById("news");
+    //code for creation of elements for the data display
+    function createNode(element) {
+      return document.createElement(element); // Create the type of element you pass in the parameters
+    }
 
-  const min = 'https://api.nytimes.com/svc/topstories/v2/world.json?api-key=l8XOQOnbwJiFJR8MynFGFcs14dQ48RZd'; // Get 10 random users
-  
-  const ul = document.getElementById('news');
-  //code for creation of elements for the data display
-  function createNode(element) {
-    return document.createElement(element); // Create the type of element you pass in the parameters
-  }
+    function append(parent, el) {
+      return parent.appendChild(el); // Append the second parameter(element) to the first one
+    }
+    //fetch() to get news from api
+    function getData() {
+      fetch(min)
+        .then(resp => resp.json()) // Transform the data into json
+        .then(function(data) {
+          console.log(data);
+          let authors = data.results;
+          return authors.map(function(item) {
+            let li = createNode("li"),
+              span = createNode("h3");
+            p2 = createNode("p");
+            img = createNode("img");
+            link = createNode("a");
+            line = createNode("span");
 
-  function append(parent, el) {
-    return parent.appendChild(el); // Append the second parameter(element) to the first one
-  }
-  //fetch() to get news from api  
-  function getData(){
-    fetch(min)
-  .then((resp) => resp.json()) // Transform the data into json
-  .then(function(data) {
-    console.log(data);
-    let authors = data.results;
-    return authors.map(function(item) {
-      let li = createNode('li'),
-          span = createNode('h3');
-          p2 = createNode('p');
-          img = createNode('img');
-          link = createNode('a');
-          line = createNode('span');
-          
-      img.setAttribute("src", item.multimedia[3].url);
-      link.setAttribute("href", item.short_url);
+            img.setAttribute("src", item.multimedia[3].url);
+            link.setAttribute("href", item.short_url);
 
-      span.innerHTML = `${item.title}`;
-      link.innerHTML = `${'Link to article >> '}`;
-      p2.innerHTML = `${item.abstract }`;
-      line.innerHTML = `${'<hr>'}`;
-      append(li, span);
-      append(li,img);   
-      append(li,p2);
-      append(li,link);
-      append(li,line);
-      append(ul, li);
-    })
+            span.innerHTML = `${item.title}`;
+            link.innerHTML = `${"Link to article >> "}`;
+            p2.innerHTML = `${item.abstract}`;
+            line.innerHTML = `${"<hr>"}`;
+            append(li, span);
+            append(li, img);
+            append(li, p2);
+            append(li, link);
+            append(li, line);
+            append(ul, li);
+          });
+        });
+    }
 
-
-    })
-  
-  }
-  
-  window.onload = getData();
-
-</script>
-
+    window.onload = getData();
+  </script>
 </html>
