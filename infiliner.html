@@ -94,7 +94,6 @@
   <script>
     $(document).ready(function() {
       var url = "https://www.indiatoday.in/rss/home";
-      var url2 = "https://www.indiatoday.in/rss/1206514";
       var url3 = "https://www.news18.com/rss/india.xml";
       var url4 = "https://www.dnaindia.com/feeds/india.xml";
       const ul = document.getElementById("news");
@@ -137,34 +136,7 @@
             }
         }
       });
-      feednami.load(url2, function(result) {
-        if (result.error) {
-          console.log(result.error);
-        } else {
-          var entries = result.feed.entries;
-          for (var i = 0; i < entries.length; i++) {
-            var entry = entries[i];
-            console.dir(entry);
-            return entries.map(entry=> {
-                let 
-                    li = createNode("li"),
-                    p  = createNode("p")
-                    h4 = createNode("h3");
-                    line = createNode("span");
-
-                    h4.innerHTML = `${entry.title}`;
-
-                    line.innerHTML = `${"<hr>"}`;
-                    p.innerHTML  = `${entry.description}`;
-                append(li,h4);
-                append(li,p);
-
-                append(li, line);
-                append(ul,li);});
-
-            }
-        }
-      });
+     
       feednami.load(url3, function(result) {
         if (result.error) {
           console.log(result.error);
