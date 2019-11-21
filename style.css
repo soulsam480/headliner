@@ -162,3 +162,7 @@ input:checked + .slider:before {
   background-color: white;
   color: black;
 }
+#news li p img {
+  width: 100%;
+  height: auto;
+}

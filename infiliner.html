@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+    <html lang="en">
+        <head>
+          <link rel="manifest" href="manifest.json" />
+      
+          <script>
+            // This is the "Offline page" service worker
+      
+            // Add this below content to your HTML page, or add the js file to your page at the very top to register service worker
+      
+            // Check compatibility for the browser we're running this in
+            if ("serviceWorker" in navigator) {
+              if (navigator.serviceWorker.controller) {
+                console.log(
+                  "[PWA Builder] active service worker found, no need to register"
+                );
+              } else {
+                // Register the service worker
+                navigator.serviceWorker
+                  .register("./sw.js", {
+                    scope: "."
+                  })
+                  .then(function(reg) {
+                    console.log(
+                      "[PWA Builder] Service worker has been registered for scope: " +
+                        reg.scope
+                    );
+                  });
+              }
+            }
+          </script>
+    <meta property="og:title" content="Headliner | Read top Headlines." />
+    <meta
+      property="og:description"
+      content="Read top national and international headlines on Headliner."
+    />
+    <meta property="og:site_name" content="Headliner" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://soulsam480.github.io/headliner" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />  
+    <link rel="stylesheet" href="style.css" />
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+    crossorigin="anonymous"
+  ></script>
+  <script src="https://static.sekandocdn.net/static/feednami/feednami-client-v1.1.js"></script>
+    <title>Infiliner | Read Infinite  Headlines</title>
+    <style>
+    #news li a{
+    background-color: none  !important;
+        color: black;
+    }
+    .darkmode #news li a {
+  background-color: none !important;
+  color: white;
+}
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <nav style="text-align: center;">
+        <span class="nav-link" style="float: left;"><h2>Infiliner</h2></span>
+        <span class="nav-link" style="float: right;">
+          <label class="switch">
+            <input type="checkbox" onclick="dToggle()"/>
+            <span class="slider round"></span>
+          </label>
+        </span>
+      </nav>
+      <br>
+      <hr />
+      <h3><a href="index.html">Go to Headliner</a></h3>
+
+      <br />
+      <div>
+        <ul id="news">
+        </ul>
+      </div>
+
+      <p style="text-align: center; font-weight:700;">
+        CREATED WITH <a href="https://newsapi.org">NewsApi.Org </a> By
+        <a href="https://sambitsahoo.cf">Sambit Sahoo</a>
+      </p>
+    </div>
+  </body>
+  <script>
+        const body = document.body;
+           function dToggle() {
+             body.classList.toggle("darkmode");
+           }</script>
+  <script>
+    $(document).ready(function() {
+      var url = "https://www.indiatoday.in/rss/home";
+      var url2 = "https://www.indiatoday.in/rss/1206514";
+      var url3 = "https://www.news18.com/rss/india.xml";
+      var url4 = "https://www.dnaindia.com/feeds/india.xml";
+      const ul = document.getElementById("news");
+
+           
+  function createNode(element) {
+      return document.createElement(element); // Create the type of element you pass in the parameters
+    }
+
+    function append(parent, el) {
+      return parent.appendChild(el); // Append the second parameter(element) to the first one
+    }
+
+
+      feednami.load(url, function(result) {
+        if (result.error) {
+          console.log(result.error);
+        } else {
+          var entries = result.feed.entries;
+          for (var i = 0; i < entries.length; i++) {
+            var entry = entries[i];
+            console.dir(entry);
+            return entries.map(entry=> {
+                let 
+                    li = createNode("li"),
+                    p  = createNode("p")
+                    h4 = createNode("h3");
+                    line = createNode("span");
+
+                h4.innerHTML = `${entry.title}`;
+                p.innerHTML  = `${entry.description}`;
+                line.innerHTML = `${"<hr>"}`;
+
+                append(li,h4);
+                append(li,p);
+
+            append(li, line);
+                append(ul,li);});
+
+            }
+        }
+      });
+      feednami.load(url2, function(result) {
+        if (result.error) {
+          console.log(result.error);
+        } else {
+          var entries = result.feed.entries;
+          for (var i = 0; i < entries.length; i++) {
+            var entry = entries[i];
+            console.dir(entry);
+            return entries.map(entry=> {
+                let 
+                    li = createNode("li"),
+                    p  = createNode("p")
+                    h4 = createNode("h3");
+                    line = createNode("span");
+
+                    h4.innerHTML = `${entry.title}`;
+
+                    line.innerHTML = `${"<hr>"}`;
+                    p.innerHTML  = `${entry.description}`;
+                append(li,h4);
+                append(li,p);
+
+                append(li, line);
+                append(ul,li);});
+
+            }
+        }
+      });
+      feednami.load(url3, function(result) {
+        if (result.error) {
+          console.log(result.error);
+        } else {
+          var entries = result.feed.entries;
+          for (var i = 0; i < entries.length; i++) {
+            var entry = entries[i];
+            console.dir(entry);
+            return entries.map(entry=> {
+                let 
+                    li = createNode("li");
+                    p  = createNode("p");
+                    link = createNode("a");
+
+                    line = createNode("span");
+                    h4 = createNode("h3");
+
+                    line.innerHTML = `${"<hr>"}`;
+                    h4.innerHTML = `${entry.title}`;
+                p.innerHTML  = `${entry.description}`;
+                link.setAttribute("href", entry.link);
+                append(li,h4);
+                append(li,link)
+                append(link,p);
+
+                append(li, line);
+                append(ul,li);});
+
+            }
+        }
+      });
+      feednami.load(url4, function(result) {
+        if (result.error) {
+          console.log(result.error);
+        } else {
+          var entries = result.feed.entries;
+          for (var i = 0; i < entries.length; i++) {
+            var entry = entries[i];
+            console.dir(entry);
+            return entries.map(entry=> {
+                let 
+                    li = createNode("li"),
+                    p  = createNode("p")
+                    h4 = createNode("h3");
+                    link = createNode("a");
+
+                    line = createNode("span");
+                    img = createNode("img");
+
+                    line.innerHTML = `${"<hr>"}`;
+                    h4.innerHTML = `${entry.title}`;
+                img.setAttribute("src", entry.enclosures[0].url);
+                link.setAttribute("href", entry.link);
+                p.innerHTML  = `${entry.description}`;
+                append(li,h4);
+                append(li,link)
+                append(link,img);
+                append(li,p);
+                append(li, line);
+
+                append(ul,li);});
+
+            }
+        }
+      });
+    });
+  </script>
+</html>
