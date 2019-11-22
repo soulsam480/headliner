@@ -115,36 +115,7 @@
           return parent.appendChild(el); // Append the second parameter(element) to the first one
         }
 
-        feednami.load(url, function(result) {
-          if (result.error) {
-            console.log(result.error);
-          } else {
-            var entries = result.feed.entries;
-            for (var i = 0; i < entries.length; i++) {
-              var entry = entries[i];
-              console.dir(entry);
-              return entries.map(entry => {
-                let li = createNode("li"),
-                p = createNode("p");
-                h4 = createNode("h3");
-                line = createNode("span");
-
-                h4.innerHTML = `${entry.title}`;
-                p.innerHTML = `${entry.description}`;
-                line.innerHTML = `${"<hr>"}`;
-                p.setAttribute("id","alink");
-                
-                append(li, h4);
-                append(li, p);
-                append(li, line);
-                append(ul, li);
-
-                });
-            }
-           
-          }
-         
-        });
+        
 
         feednami.load(url3, function(result) {
           if (result.error) {
@@ -208,6 +179,36 @@
               });
             }
           }
+        });
+        feednami.load(url, function(result) {
+          if (result.error) {
+            console.log(result.error);
+          } else {
+            var entries = result.feed.entries;
+            for (var i = 0; i < entries.length; i++) {
+              var entry = entries[i];
+              console.dir(entry);
+              return entries.map(entry => {
+                let li = createNode("li"),
+                p = createNode("p");
+                h4 = createNode("h3");
+                line = createNode("span");
+
+                h4.innerHTML = `${entry.title}`;
+                p.innerHTML = `${entry.description}`;
+                line.innerHTML = `${"<hr>"}`;
+                p.setAttribute("id","alink");
+                
+                append(li, h4);
+                append(li, p);
+                append(li, line);
+                append(ul, li);
+
+                });
+            }
+           
+          }
+         
         });
         
       });
