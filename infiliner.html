@@ -33,7 +33,6 @@
   </script>
   <script src="jquery-3.4.1.slim.min.js"></script>
   <script src="feednami-client-v1.1.js"></script>
-  <script src="lazyload.min.js"></script>
   <meta property="og:title" content="Headliner | Read top Headlines." />
   <meta property="og:description" content="Read top national and international headlines on Headliner." />
   <meta property="og:site_name" content="Headliner" />
@@ -56,11 +55,7 @@
     }
   </style>
 </head>
-<script>
-  $(function () {
-    $("img.lazy").lazyload({ effect: "fadeIn" });
-  });
-</script>
+
 <body>
   <div class="content">
     <nav style="text-align: center;">
@@ -85,10 +80,11 @@
 
     <p style="text-align: center; font-weight:700;">
       CREATED WITH By
-      <a href="https://sambitsahoo.cf">Sambit Sahoo</a>
+      <a href="https://sambitsahoo2.cf">Sambit Sahoo</a>
     </p>
   </div>
 </body>
+
 <script>
   const body = document.body;
   function dToggle() {
@@ -188,6 +184,7 @@
               p = createNode("p");
             h4 = createNode("h3");
             line = createNode("span");
+            
 
             h4.innerHTML = `${entry.title}`;
             p.innerHTML = `${entry.description}`;

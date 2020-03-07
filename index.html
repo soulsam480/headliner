@@ -171,12 +171,12 @@
         let authors = data.articles;
         return authors.map(item => {
           let li = createNode("li"),
-            h4 = createNode("h3");
+          h4 = createNode("h3");
           p2 = createNode("p");
           img = createNode("img");
           link = createNode("a");
           line = createNode("span");
-
+          
           link.setAttribute("href", item.url);
           link.setAttribute("target", "_blank");
           img.setAttribute("src", item.urlToImage);
@@ -184,7 +184,7 @@
           link.innerHTML = `${"Link to article >>"}`;
           p2.innerHTML = `${item.description}`;
           line.innerHTML = `${"<hr>"}`;
-
+          
           append(li, h4);
           append(li, img);
           append(li, p2);
