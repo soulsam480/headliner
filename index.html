@@ -169,6 +169,7 @@
       .then(function (data) {
         console.log(data);
         let authors = data.articles;
+        console.log(authors)
         return authors.map(item => {
           let li = createNode("li"),
           h4 = createNode("h3");
