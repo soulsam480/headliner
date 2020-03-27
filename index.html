@@ -30,6 +30,7 @@
       }
     }
   </script>
+  <link rel="dns-prefetch preconnect" href="https://fonts.gstatic.com">
   <meta property="og:title" content="Headliner | Read top Headlines." />
   <meta property="og:description" content="Read top national and international headlines on Headliner." />
   <meta property="og:site_name" content="Headliner" />
@@ -55,7 +56,8 @@
 </head>
 
 <body>
-  <script>
+  <!--  
+    <script>
     window.fbAsyncInit = function() {
       FB.init({
         appId            : '2473561846298282',
@@ -66,6 +68,7 @@
     };
   </script>
   <script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
+  -->
   <div class="ad2hs-prompt">
     <div class="modal-content">
       <img src="android-chrome-192x192.png" alt="" style="width:30%;margin:auto;padding:20px 0 0 0" />
@@ -112,7 +115,7 @@
     </p>
   </div>
   <!-- Go to www.addthis.com/dashboard to customize your tools -->
-<!--<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e7de6e894ad4146"></script>
+  <!--<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e7de6e894ad4146"></script>
 -->
 </body>
 <script>
@@ -184,18 +187,18 @@
         let authors = data.articles;
         return authors.map(item => {
           let li = createNode("li"),
-          h4 = createNode("h3");
+            h4 = createNode("h3");
           p2 = createNode("p");
           img = createNode("img");
           link = createNode("a");
           line = createNode("span");
           link2 = createNode("a")
           link3 = createNode("a")
-          
-          link3.setAttribute("onclick"," FB.ui({display: 'popup',method: 'share',href:'"+ item.url  +"',}, function(response){});")
-          link2.setAttribute("href", "whatsapp://send?text="+item.url)
+
+          link3.setAttribute("onclick", " FB.ui({display: 'popup',method: 'share',href:'" + item.url + "',}, function(response){});")
+          link2.setAttribute("href", "whatsapp://send?text=" + item.url)
           link2.setAttribute("data-action", "share/whatsapp/share")
-          link2.setAttribute("class","washare")
+          link2.setAttribute("class", "washare")
           link.setAttribute("href", item.url);
           link.setAttribute("target", "_blank");
           img.setAttribute("src", item.urlToImage);
@@ -205,13 +208,13 @@
           link3.innerHTML = `${"Fb"}`;
           p2.innerHTML = `${item.description}`;
           line.innerHTML = `${"<hr>"}`;
-          
+
           append(li, h4);
           append(li, img);
           append(li, p2);
           append(li, link);
           //append(li,link3);
-          append(li,link2);
+          append(li, link2);
           append(li, line);
           append(ul, li);
         });
