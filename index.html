@@ -181,12 +181,16 @@
           img = createNode("img");
           link = createNode("a");
           line = createNode("span");
+          link2 = createNode("a")
           
+          link2.setAttribute("href", "whatsapp://send?text="+item.url)
+          link2.setAttribute("data-action", "share/whatsapp/share")
           link.setAttribute("href", item.url);
           link.setAttribute("target", "_blank");
           img.setAttribute("src", item.urlToImage);
           h4.innerHTML = `${item.title}`;
           link.innerHTML = `${"Link to article >>"}`;
+          link2.innerHTML = `${"whatsapp"}`;
           p2.innerHTML = `${item.description}`;
           line.innerHTML = `${"<hr>"}`;
           
@@ -194,6 +198,7 @@
           append(li, img);
           append(li, p2);
           append(li, link);
+          append(li,link2)
           append(li, line);
           append(ul, li);
         });
