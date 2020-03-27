@@ -55,6 +55,17 @@
 </head>
 
 <body>
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId            : '2473561846298282',
+        autoLogAppEvents : true,
+        xfbml            : true,
+        version          : 'v6.0'
+      });
+    };
+  </script>
+  <script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
   <div class="ad2hs-prompt">
     <div class="modal-content">
       <img src="android-chrome-192x192.png" alt="" style="width:30%;margin:auto;padding:20px 0 0 0" />
@@ -91,7 +102,6 @@
     <h3><a href="infiliner.html">Go to Infiliner</a></h3>
     <br />
     <div>
-      <a href="whatsapp://send?text=The text to share!" data-action="share/whatsapp/share">Share via Whatsapp</a>
       <ul id="news">
       </ul>
     </div>
@@ -171,9 +181,7 @@
     fetch(url)
       .then(resp => resp.json()) // Transform the data into json
       .then(function (data) {
-        console.log(data);
         let authors = data.articles;
-        console.log(authors)
         return authors.map(item => {
           let li = createNode("li"),
           h4 = createNode("h3");
@@ -182,15 +190,19 @@
           link = createNode("a");
           line = createNode("span");
           link2 = createNode("a")
+          link3 = createNode("a")
           
+          link3.setAttribute("onclick"," FB.ui({display: 'popup',method: 'share',href:'"+ item.url  +"',}, function(response){});")
           link2.setAttribute("href", "whatsapp://send?text="+item.url)
           link2.setAttribute("data-action", "share/whatsapp/share")
+          link2.setAttribute("class","washare")
           link.setAttribute("href", item.url);
           link.setAttribute("target", "_blank");
           img.setAttribute("src", item.urlToImage);
           h4.innerHTML = `${item.title}`;
           link.innerHTML = `${"Link to article >>"}`;
-          link2.innerHTML = `${"whatsapp"}`;
+          link2.innerHTML = `${'<img src="https://img.icons8.com/color/48/000000/whatsapp.png"/>'}`;
+          link3.innerHTML = `${"Fb"}`;
           p2.innerHTML = `${item.description}`;
           line.innerHTML = `${"<hr>"}`;
           
@@ -198,7 +210,8 @@
           append(li, img);
           append(li, p2);
           append(li, link);
-          append(li,link2)
+          append(li,link3);
+          append(li,link2);
           append(li, line);
           append(ul, li);
         });
