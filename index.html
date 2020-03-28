@@ -187,14 +187,16 @@
         let authors = data.articles;
         return authors.map(item => {
           let li = createNode("li"),
-            h4 = createNode("h3");
-          p2 = createNode("p");
-          img = createNode("img");
-          link = createNode("a");
-          line = createNode("span");
-          link2 = createNode("a")
-          link3 = createNode("a")
-
+              h4 = createNode("h3");
+              p2 = createNode("p");
+              img = createNode("img");
+              link = createNode("a");
+              line = createNode("span");
+              link2 = createNode("a")
+              link3 = createNode("a")
+              link4 = createNode("a")
+          
+          link4.setAttribute("onclick", "navigator.share({url:'"+item.url+"'})")
           link3.setAttribute("onclick", " FB.ui({display: 'popup',method: 'share',href:'" + item.url + "',}, function(response){});")
           link2.setAttribute("href", "whatsapp://send?text=" + item.url)
           link2.setAttribute("data-action", "share/whatsapp/share")
@@ -224,5 +226,16 @@
   window.onload = getData();
 
 </script>
+<script>
 
+let shareData = {
+        title: 'MDN',
+        text: 'Learn web development on MDN!',
+        url: 'https://developer.mozilla.org',
+      }
+
+      btn.addEventListener('click', () => {
+        navigator.share(shareData)
+      });
+</script>
 </html>
