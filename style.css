@@ -88,6 +88,10 @@ li {
   padding: 2px;
 }
 
+#news li a b {
+  color: black;
+  padding: 2px;
+}
 /* The CSS code for the toggle switch*/
 .switch {
   position: relative;
@@ -162,6 +166,11 @@ input:checked + .slider:before {
   background-color: white;
   color: black;
 }
+
+.darkmode #news li a b{
+  color: white;
+}
+
 #news li p img {
   width: 100%;
   height: auto;

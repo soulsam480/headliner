@@ -31,6 +31,7 @@
     }
   </script>
   <link rel="dns-prefetch preconnect" href="https://fonts.gstatic.com">
+  <link rel="preload" href='https://img.icons8.com/flat_round/64/000000/share--v1.png' as="image/png">
   <meta property="og:title" content="Headliner | Read top Headlines." />
   <meta property="og:description" content="Read top national and international headlines on Headliner." />
   <meta property="og:site_name" content="Headliner" />
@@ -194,8 +195,8 @@
               line = createNode("span");
               link4 = createNode("a")
           
-          link4.setAttribute("onclick", "if (navigator.share) {navigator.share({title:'"+item.title+"',text:'shared from Headliner',url: '"+item.url+"',}).then(() => console.log('Successful share')).catch((error) => console.log('Error sharing', error));}")
-          link4.innerHTML = `${'<img src="https://img.icons8.com/android/24/000000/share.png"/>'}`;
+          link4.setAttribute("onclick", "if (navigator.share) {navigator.share({title:'"+ item.title +"',text:'shared from Headliner',url: '"+item.url+"',}).then(() => console.log('Successful share')).catch((error) => console.log('Error sharing', error));}")
+          link4.innerHTML = `${'<b>Share this article<b> <img src="https://img.icons8.com/flat_round/64/000000/share--v1.png"/>'}`;
           link.setAttribute("href", item.url);
           link.setAttribute("target", "_blank");
           img.setAttribute("src", item.urlToImage);
