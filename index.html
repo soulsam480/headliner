@@ -192,33 +192,24 @@
               img = createNode("img");
               link = createNode("a");
               line = createNode("span");
-              link2 = createNode("a")
-              link3 = createNode("a")
               link4 = createNode("a")
           
-          link4.setAttribute("onclick", "if (navigator.share) {navigator.share({url: '"+ item.url+"',}).then(() => console.log('Successful share')).catch((error) => console.log('Error sharing', error));}")
-          link4.innerHTML = `${"nat share"}`;
-          link3.setAttribute("onclick", " FB.ui({display: 'popup',method: 'share',href:'" + item.url + "',}, function(response){});")
-          link2.setAttribute("href", "whatsapp://send?text=" + item.url)
-          link2.setAttribute("data-action", "share/whatsapp/share")
-          link2.setAttribute("class", "washare")
+          link4.setAttribute("onclick", "if (navigator.share) {navigator.share({title:'"+item.title+"',text:'shared from Headliner',url: '"+item.url+"',}).then(() => console.log('Successful share')).catch((error) => console.log('Error sharing', error));}")
+          link4.innerHTML = `${'<img src="https://img.icons8.com/android/24/000000/share.png"/>'}`;
           link.setAttribute("href", item.url);
           link.setAttribute("target", "_blank");
           img.setAttribute("src", item.urlToImage);
           h4.innerHTML = `${item.title}`;
           link.innerHTML = `${"Link to article >>"}`;
-          link2.innerHTML = `${'<img src="https://img.icons8.com/color/48/000000/whatsapp.png"/>'}`;
-          link3.innerHTML = `${"Fb"}`;
           p2.innerHTML = `${item.description}`;
+          link4.setAttribute("class","washare")
           line.innerHTML = `${"<hr>"}`;
 
           append(li, h4);
           append(li, img);
           append(li, p2);
           append(li, link);
-          //append(li,link3);
           append(li,link4)
-          append(li, link2);
           append(li, line);
           append(ul, li);
         });
@@ -228,16 +219,5 @@
   window.onload = getData();
 
 </script>
-<script>
 
-let shareData = {
-        title: 'MDN',
-        text: 'Learn web development on MDN!',
-        url: 'https://developer.mozilla.org',
-      }
-
-      btn.addEventListener('click', () => {
-        navigator.share(shareData)
-      });
-</script>
 </html>
