@@ -196,7 +196,7 @@
               link3 = createNode("a")
               link4 = createNode("a")
           
-          link4.setAttribute("onclick", "navigator.share({url:'"+item.url+"'})")
+          link4.setAttribute("onclick", "if (navigator.share) {navigator.share({url: '"+ item.url+"',}).then(() => console.log('Successful share')).catch((error) => console.log('Error sharing', error));}")
           link4.innerHTML = `${"nat share"}`;
           link3.setAttribute("onclick", " FB.ui({display: 'popup',method: 'share',href:'" + item.url + "',}, function(response){});")
           link2.setAttribute("href", "whatsapp://send?text=" + item.url)
@@ -217,6 +217,7 @@
           append(li, p2);
           append(li, link);
           //append(li,link3);
+          append(li,link4)
           append(li, link2);
           append(li, line);
           append(ul, li);
