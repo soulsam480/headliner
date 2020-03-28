@@ -197,6 +197,7 @@
               link4 = createNode("a")
           
           link4.setAttribute("onclick", "navigator.share({url:'"+item.url+"'})")
+          link4.innerHTML = `${"nat share"}`;
           link3.setAttribute("onclick", " FB.ui({display: 'popup',method: 'share',href:'" + item.url + "',}, function(response){});")
           link2.setAttribute("href", "whatsapp://send?text=" + item.url)
           link2.setAttribute("data-action", "share/whatsapp/share")
