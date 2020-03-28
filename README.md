@@ -97,17 +97,17 @@ Yes, Headliner has it's own dedicated darkmode. By one toggle at the top is swit
   }
 ```
 ### Social Sharing :speech_balloon:
-Headliner also lets users to share articles on various social networking platforms like whatsapp, facebook etc. Currently share to whatsapp is available. 
+Headliner also lets users to share articles on various social networking platforms like whatsapp, facebook etc. It uses the web API **navigator.share()** which invokes the native sharing dialouge. 
 ```
-link3 = createNode("a")
-
-link3.setAttribute("onclick", " FB.ui({display: 'popup',method: 'share',href:'" + item.url + "',}, function(response){});")
-link2.setAttribute("href", "whatsapp://send?text=" + item.url)
-link2.setAttribute("data-action", "share/whatsapp/share")
-link2.innerHTML = `${'<img src="https://img.icons8.com/color/48/000000/whatsapp.png"/>'}`;
-append(li, link2);
+if (navigator.share) {
+navigator.share(
+{title:'" + entry.title + "',
+text:'shared from Headliner',
+url: '" + entry.url + "',
+}).then(() =>
+console.log('Successful share')).catch((error) => 
+console.log('Error sharing', error));}
 ```
-I'm also adding share to facebook and twitter option soon.:v:
 
 ### Thank You.
 Headliner is developed as a hobby project of mine. Feel free to fork and develop :smile: :v:. for any help or suggestions drop a [mail](mailto:soulsam480@gmail.com) .
