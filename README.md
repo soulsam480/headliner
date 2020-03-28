@@ -1,9 +1,10 @@
 # Headliner :newspaper:
-A progressive web app(PWA) which fetches news from an news API. [Visit Headliner](https://soulsam480.github.io/headliner) 
-## Infiliner
-infiliner is a rss :rss: news aggregator which collects and shows rss news articles from various news providers.
+A progressive web app(PWA) which fetches news from a news API. [Visit Headliner](https://soulsam480.github.io/headliner) 
+## Infiliner :rocket:
+infiliner is a rss news aggregator which collects and shows rss news articles from various news providers. It is inside the same Web app as Headliner.
 [Visit Infiliner](https://soulsam480.github.io/infiliner)
 ### How it's done ?
+#### Headliner>
 It uses the javascript **fetch()** API to get information from an API endpoint. It makes async request instead of using the traditional XMLHttp request. The information from the api gets transformed into a **json** object. As the news articles come as a js array its easy to map them to html elements uding js array method **map()**. 
 ```
 fetch(url)
@@ -31,6 +32,20 @@ function createNode(element) {
           return parent.appendChild(el); // Append the second parameter(element) to the first one
         }
 
+```
+#### Infiliner>
+Infiliner uses [Feddnami](https://github.com/sekando/feednami-client) A lightweight Javascript client for downloading RSS/Atom feeds. After downloading the rss feeds it sues the same method as headliner to create and append elements to browser DOM. Infiliner has 3 sources to get rss feeds. This makes infiliner to have almost infinite news articles :sunglasses:.
+```
+feednami.load(url, function(result) {
+          if (result.error) {
+            console.log(result.error);
+          } else {
+            var entries = result.feed.entries;
+            for (var i = 0; i < entries.length; i++) {
+              var entry = entries[i];
+              console.dir(entry);
+              return entries.map(entry => {
+                console.log(entry.link)
 ```
 
 ### PWA :fire: :rocket:
@@ -94,6 +109,7 @@ append(li, link2);
 ```
 I'm also adding share to facebook and twitter option soon.:v:
 
-
+### Thank You.
+Headliner is developed as a hobby project of mine. Feel free to fork and develop :smile: :v:. for any help or suggestions drop a [mail](mailto:soulsam480@gmail.com) .
 
 
