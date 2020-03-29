@@ -2,10 +2,6 @@
 <html lang="en">
 
 <head>
-  <link rel="manifest" href="./assets/manifest.json" />
-
-  
-  </script>
   <script src="./assets/js/jquery-3.4.1.slim.min.js"></script>
   <script src="./assets/js/feednami-client-v1.1.js"></script>
   <meta property="og:title" content="Headliner | Read top Headlines." />
@@ -40,7 +36,7 @@
   <div class="content">
     <nav style="text-align: center;">
       <span class="nav-link" style="float: left;">
-        <h2>Infiliner</h2>
+        <h2>Infi-Tech</h2>
       </span>
       <span class="nav-link" style="float: right;">
         <label class="switch">
@@ -51,14 +47,14 @@
     </nav>
     <br />
     <hr />
-    <nav style="text-align: center;">
-     
+    <nav style="text-align: center;" class="main-nav">
+
       <span>
-     <a href="index.html" class="nav-link2">Headliner</a>
+        <a href="index.html" class="nav-link2">Headliner</a>
       </span>
       <span>|</span>
       <span>
-        <a href="infitech.html" class="nav-link2">Infi-Tech</a>
+        <a href="infiliner.html" class="nav-link2">Infi-News</a>
       </span>
       <span>|</span>
       <span>
@@ -67,7 +63,12 @@
     </nav>
     <br />
     <div>
-      <ul id="news"></ul>
+        <h3 class="ul-head" style=""> The Verge</h3>
+      <ul id="verge"></ul>
+      <h3 class="ul-head"> Tech Crunch</h3>
+      <ul id="crunch"></ul>
+      <h3 class="ul-head"> CNBC Tech</h3>
+      <ul id="cnbc"></ul>
     </div>
 
     <p style="text-align: center; font-weight:700;">
@@ -85,10 +86,12 @@
 </script>
 <script>
   $(document).ready(() => {
-    var url = "https://www.indiatoday.in/rss/home";
-    var url3 = "https://www.news18.com/rss/india.xml";
-    var url4 = "https://www.dnaindia.com/feeds/india.xml";
-    const ul = document.getElementById("news");
+    var verge = "https://www.theverge.com/rss/index.xml";
+    var crunch = "https://techcrunch.com/feed/";
+    var cnbc = "https://www.cnbc.com/id/19854910/device/rss/rss.html";
+    const ul = document.getElementById("verge");
+    const cr = document.getElementById("crunch");
+    const cn = document.getElementById("cnbc");
 
     function createNode(element) {
       return document.createElement(element); // Create the type of element you pass in the parameters
@@ -98,44 +101,48 @@
       return parent.appendChild(el); // Append the second parameter(element) to the first one
     }
 
-    feednami.load(url3, result => {
+    feednami.load(verge, result => {
       if (result.error) {
         console.log(result.error);
       } else {
         var entries = result.feed.entries;
-        for (var i = 0; i < entries.length; i++) {
+        
+        for (var i = 0; i < 2; i++) {
           var entry = entries[i];
           return entries.map(entry => {
+           entry.description = entry.description.substr(0, 600) + '...';
+
             let li = createNode("li");
-            p = createNode("p");
             link = createNode("a");
             line = createNode("span");
             h4 = createNode("h3");
             link4 = createNode("a");
 
+            
             link4.setAttribute("onclick", "if (navigator.share) {navigator.share({title:'" + entry.title + "',text:'shared from Headliner',url: '" + entry.url + "',}).then(() => console.log('Successful share')).catch((error) => console.log('Error sharing', error));}")
-            link4.innerHTML = `${'<b>Share this article</b> <img src="https://img.icons8.com/flat_round/64/000000/share--v1.png"/>'}`;
+            link4.innerHTML = `${' <img src="https://img.icons8.com/flat_round/64/000000/share--v1.png"/>'}`;
             link4.setAttribute("class", "washare")
             line.innerHTML = `${"<hr>"}`;
-            h4.innerHTML = `${entry.title}`;
-            p.innerHTML = `${entry.description}`;
+            h4.innerHTML = `${entry.title + " <small>-The Verge</small>"}`;
+            link.innerHTML = `${entry.description}`;
             link.setAttribute("href", entry.link);
             link.setAttribute("target", "_blank");
+            h4.setAttribute("onclick","window.open('"+ entry.link +"')")
             append(li, h4);
+            append(li, link4);
             append(li, link);
-            append(link, p);
-            append(li, link4)
             append(li, line);
             append(ul, li);
           });
         }
       }
     });
-    feednami.load(url4, function (result) {
+    feednami.load(crunch, function (result) {
       if (result.error) {
         console.log(result.error);
       } else {
         var entries = result.feed.entries;
+        
         for (var i = 0; i < entries.length; i++) {
           var entry = entries[i];
           return entries.map(entry => {
@@ -144,70 +151,67 @@
             h4 = createNode("h3");
             link = createNode("a");
             line = createNode("span");
-            img = createNode("img");
             link4 = createNode("a");
 
-            link4.setAttribute("onclick", "if (navigator.share) {navigator.share({title:'" + entry.title + "',text:'shared from Headliner',url: '" + entry.url + "',}).then(() => console.log('Successful share')).catch((error) => console.log('Error sharing', error));}")
-            link4.innerHTML = `${'<b>Share this article</b> <img src="https://img.icons8.com/flat_round/64/000000/share--v1.png"/>'}`;
+
+            link4.setAttribute("onclick", "if (navigator.share) {navigator.share({title:'" + entry.title + "',text:'shared from Headliner',url: '" + entry.link + "',}).then(() => console.log('Successful share')).catch((error) => console.log('Error sharing', error));}")
+            link4.innerHTML = `${'<img src="https://img.icons8.com/flat_round/64/000000/share--v1.png"/>'}`;
             link4.setAttribute("class", "washare")
             line.innerHTML = `${"<hr>"}`;
-            h4.innerHTML = `${entry.title}`;
-            img.setAttribute("src", entry.enclosures[0].url);
-            img.classList.add("lazy");
-            img.setAttribute("data-original", entry.enclosures[0].url);
+            h4.innerHTML = `${entry.title + " <small>-Tech Crunch</small>"}`;
             link.setAttribute("href", entry.link);
             link.setAttribute("target", "_blank");
-            p.innerHTML = `${entry.description}`;
+            link.innerHTML = `${entry.summary}`;
+            h4.setAttribute("onclick","window.open('"+ entry.link +"')")
+
             append(li, h4);
+            append(li, link4);
             append(li, link);
-            append(link, img);
-            append(li, p);
-            append(li, link4)
             append(li, line);
-            append(ul, li);
+            append(cr, li);
           });
         }
       }
     });
-    feednami.load(url, function (result) {
+
+    feednami.load(cnbc, function (result) {
       if (result.error) {
         console.log(result.error);
       } else {
         var entries = result.feed.entries;
+        
+
         for (var i = 0; i < entries.length; i++) {
           var entry = entries[i];
           return entries.map(entry => {
 
             let li = createNode("li"),
-              p = createNode("p");
             h4 = createNode("h3");
             line = createNode("span");
             link4 = createNode("a");
+            link  = createNode("a")
 
-            link4.setAttribute("onclick", "if (navigator.share) {navigator.share({title:'" + entry.title + "',text:'shared from Headliner',url: '" + entry.url + "',}).then(() => console.log('Successful share')).catch((error) => console.log('Error sharing', error));}")
-            link4.innerHTML = `${'<b>Share this article</b> <img src="https://img.icons8.com/flat_round/64/000000/share--v1.png"/>'}`;
+            
+            link4.setAttribute("onclick", "if (navigator.share) {navigator.share({title:'" + entry.title + "',text:'shared from Headliner',url: '" + entry.link + "',}).then(() => console.log('Successful share')).catch((error) => console.log('Error sharing', error));}")
+            link4.innerHTML = `${'<img src="https://img.icons8.com/flat_round/64/000000/share--v1.png"/>'}`;
             link4.setAttribute("class", "washare")
-            h4.innerHTML = `${entry.title}`;
-            p.innerHTML = `${entry.description}`;
+            h4.innerHTML = `${entry.title + " <small>-CNBC Tech"}`;
+            link.innerHTML = `${entry.description}`;
             line.innerHTML = `${"<hr>"}`;
-            p.setAttribute("id", "alink");
+            link.setAttribute("href", entry.link)
+            link.setAttribute("target","_blank")
+            h4.setAttribute("onclick","window.open('"+ entry.link +"')")
 
             append(li, h4);
-            append(li, p);
             append(li, link4)
-
+            append(li,link);
             append(li, line);
-            append(ul, li);
+            append(cn, li);
           });
         }
       }
     });
   });
-</script>
-
-
-<script>
-
 </script>
 
 </html>

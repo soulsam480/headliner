@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Slabo+27px&display=swap");
 html,
 body {
-  padding: 10px 10px 0 10px;
+  padding: 5px 5px 0 5px;
   margin: 0px;
   font-family: "Slabo 27px", serif;
   letter-spacing: 2px;
@@ -38,6 +38,20 @@ li {
   display: inline-block;
   font-weight: 700;
   font-size: 18px;
+}
+.nav-link2 {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 18px;
+  padding: 2px 2px;
+}
+.nav-link2:hover {
+  background-color: #252525;
+  color: white;
+}
+.darkmode .content nav .nav-link2:hover {
+  background-color: white;
+  color: black;
 }
 
 .ad2hs-prompt {
@@ -78,17 +92,28 @@ li {
   max-width: 100%;
   height: auto;
 }
-#news li h3 {
-  padding: 0 0 10px 0;
-}
 
 #news li a {
-  background-color: rgb(56, 56, 56);
-  color: white;
   padding: 2px;
+  background-color: black;
+  color: white;
 }
 
 #news li a b {
+  color: black;
+  padding: 2px;
+}
+#verge li img {
+  max-width: 100%;
+  height: auto;
+}
+
+#verge li a {
+  padding: 2px;
+
+}
+
+#verge li a b {
   color: black;
   padding: 2px;
 }
@@ -96,7 +121,7 @@ li {
 .switch {
   position: relative;
   width: 60px;
-display: inline-block;
+  display: inline-block;
   height: 28px;
 }
 
@@ -162,12 +187,11 @@ input:checked + .slider:before {
 .darkmode a {
   color: white;
 }
-.darkmode #news li a {
+.darkmode #news li a{
   background-color: white;
   color: black;
-}
-
-.darkmode #news li a b{
+} 
+.darkmode #news li a b {
   color: white;
 }
 
@@ -176,13 +200,38 @@ input:checked + .slider:before {
   height: auto;
 }
 
-.washare{
+.darkmode #news li a b {
+  color: white;
+}
+
+#verge li p img {
+  width: 100%;
+  height: auto;
+}
+.washare {
   background-color: unset !important;
 }
-.washare img{
+.washare img {
   float: right;
   clear: both;
-  vertical-align:middle;
+  vertical-align: middle;
   display: inline;
   width: 30px;
+}
+
+.ul-head {
+  text-align: center;
+  background-color: black;
+  color: white;
+  margin-bottom: 5px;
+}
+.darkmode .ul-head {
+  background-color: white;
+  color: black;
+}
+.main-nav{
+  background-color: rgb(214, 214, 214);
+}
+.darkmode .content .main-nav{
+  background-color:rgba(53, 53, 53, 0.795);
 }
