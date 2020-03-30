@@ -3,8 +3,6 @@
 
 <head>
   <link rel="manifest" href="./assets/manifest.json" />
-
-  
   </script>
   <script src="./assets/js/jquery-3.4.1.slim.min.js"></script>
   <script src="./assets/js/feednami-client-v1.1.js"></script>
@@ -18,7 +16,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
   <link rel="stylesheet" href="./assets/style.css" />
 
-  <title>Infiliner | Read Infinite Headlines</title>
+  <title>Infi-News | Read Top News</title>
   <style>
     html,
     body {
@@ -38,10 +36,11 @@
 </head>
 
 <body>
+  
   <div class="content">
     <nav style="text-align: center;">
       <span class="nav-link" style="float: left;">
-        <h2>Infiliner</h2>
+        <h2>Infi-News</h2>
       </span>
       <span class="nav-link" style="float: right;">
         <label class="switch">
@@ -52,6 +51,8 @@
     </nav>
     <br />
     <hr />
+        <!-- The top nav on mobile phones. display none in mobile-->
+
     <nav style="text-align: center;" class="main-nav">
      
       <span>
@@ -63,18 +64,36 @@
       </span>
       <span>|</span>
       <span>
-        <a href="#" class="nav-link2">Infi-Health</a>
+        <a href="infihealth.html" class="nav-link2">Infi-Life</a>
       </span>
     </nav>
-    <br />
+    <!-- The bottom nav on mobile phones. display none in desktop-->
+    <nav style="text-align: center;" class="main-bt">
+     
+      <span>
+     <a href="index.html" class="nav-link2">Headliner</a>
+      </span>
+      <span>|</span>
+      <span>
+        <a href="infitech.html" class="nav-link2">Infi-Tech</a>
+      </span>
+      <span>|</span>
+      <span>
+        <a href="infihealth.html" class="nav-link2">Infi-Life</a>
+      </span>
+    </nav>
+
+    
     <div>
-      <ul id="news"></ul>
+      <ul id="verge" class="techul"></ul>
     </div>
 
     <p style="text-align: center; font-weight:700;">
       With 🧡 from
       <a href="https://sambitsahoo2.cf">Sambit Sahoo</a>
     </p>
+    <br>
+    <br>
   </div>
 </body>
 
@@ -89,7 +108,7 @@
     var url = "https://www.indiatoday.in/rss/home";
     var url3 = "https://www.news18.com/rss/india.xml";
     var url4 = "https://www.dnaindia.com/feeds/india.xml";
-    const ul = document.getElementById("news");
+    const ul = document.getElementById("verge");
 
     function createNode(element) {
       return document.createElement(element); // Create the type of element you pass in the parameters
@@ -114,10 +133,10 @@
             link4 = createNode("a");
 
             link4.setAttribute("onclick", "if (navigator.share) {navigator.share({title:'" + entry.title + "',text:'shared from Headliner',url: '" + entry.link + "',}).then(() => console.log('Successful share'))}")
-            link4.innerHTML = `${'<b>Share this article</b> <img src="https://img.icons8.com/flat_round/64/000000/share--v1.png"/>'}`;
+            link4.innerHTML = `${'<img src="https://img.icons8.com/flat_round/64/000000/share--v1.png"/>'}`;
             link4.setAttribute("class", "washare")
             line.innerHTML = `${"<hr>"}`;
-            h4.innerHTML = `${entry.title}`;
+            h4.innerHTML = `${entry.title + "  <small>-News 18</small>"}`;
             p.innerHTML = `${entry.description}`;
             link.setAttribute("href", entry.link);
             link.setAttribute("target", "_blank");
@@ -147,10 +166,10 @@
             link4 = createNode("a");
 
             link4.setAttribute("onclick", "if (navigator.share) {navigator.share({title:'" + entry.title + "',text:'shared from Headliner',url: '" + entry.url + "',}).then(() => console.log('Successful share'))}")
-            link4.innerHTML = `${'<b>Share this article</b> <img src="https://img.icons8.com/flat_round/64/000000/share--v1.png"/>'}`;
+            link4.innerHTML = `${'<img src="https://img.icons8.com/flat_round/64/000000/share--v1.png"/>'}`;
             link4.setAttribute("class", "washare")
             line.innerHTML = `${"<hr>"}`;
-            h4.innerHTML = `${entry.title}`;
+            h4.innerHTML = `${entry.title  + "  <small>-DNA India</small>"}`;
             img.setAttribute("src", entry.enclosures[0].url);
             img.classList.add("lazy");
             img.setAttribute("data-original", entry.enclosures[0].url);
@@ -183,9 +202,9 @@
             link4 = createNode("a");
 
             link4.setAttribute("onclick", "if (navigator.share) {navigator.share({title:'" + entry.title + "',text:'shared from Headliner',url: '" + entry.url + "',}).then(() => console.log('Successful share'))}")
-            link4.innerHTML = `${'<b>Share this article</b> <img src="https://img.icons8.com/flat_round/64/000000/share--v1.png"/>'}`;
+            link4.innerHTML = `${'<img src="https://img.icons8.com/flat_round/64/000000/share--v1.png"/>'}`;
             link4.setAttribute("class", "washare")
-            h4.innerHTML = `${entry.title}`;
+            h4.innerHTML = `${entry.title  + "  <small>-India Today</small>"}`;
             p.innerHTML = `${entry.description}`;
             line.innerHTML = `${"<hr>"}`;
             p.setAttribute("id", "alink");

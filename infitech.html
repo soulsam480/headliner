@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <link rel="manifest" href="./assets/manifest.json" />
   <script src="./assets/js/jquery-3.4.1.slim.min.js"></script>
   <script src="./assets/js/feednami-client-v1.1.js"></script>
   <meta property="og:title" content="Headliner | Read top Headlines." />
@@ -14,7 +15,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
   <link rel="stylesheet" href="./assets/style.css" />
 
-  <title>Infiliner | Read Infinite Headlines</title>
+  <title>Infi-Tech | Read Top Tech</title>
   <style>
     html,
     body {
@@ -59,23 +60,41 @@
       </span>
       <span>|</span>
       <span>
-        <a href="#" class="nav-link2">Infi-Health</a>
+        <a href="infihealth.html" class="nav-link2">Infi-Life</a>
       </span>
     </nav>
-    <br />
+      <!-- The bottom nav on mobile phones. display none in desktop-->
+      <nav style="text-align: center;" class="main-bt">
+     
+        <span>
+       <a href="index.html" class="nav-link2">Headliner</a>
+        </span>
+        <span>|</span>
+        <span>
+          <a href="infiliner.html" class="nav-link2">Infi-News</a>
+        </span>
+        <span>|</span>
+        <span>
+          <a href="infihealth.html" class="nav-link2">Infi-Life</a>
+        </span>
+      </nav>
+  
     <div>
         <h3 class="ul-head" style=""> The Verge</h3>
-      <ul id="verge"></ul>
+      <ul id="verge" class="techul"></ul>
+      
+      <h3 class="ul-head"> Beebom</h3>
+      <ul id="cnbc" class="techul"></ul>
       <h3 class="ul-head"> Tech Crunch</h3>
-      <ul id="crunch"></ul>
-      <h3 class="ul-head"> CNBC Tech</h3>
-      <ul id="cnbc"></ul>
+      <ul id="crunch" class="techul"></ul>
     </div>
 
     <p style="text-align: center; font-weight:700;">
       With 🧡 from
       <a href="https://sambitsahoo2.cf">Sambit Sahoo</a>
     </p>
+    <br>
+    <br>
   </div>
 </body>
 
@@ -89,7 +108,7 @@
   $(document).ready(() => {
     var verge = "https://www.theverge.com/rss/index.xml";
     var crunch = "https://techcrunch.com/feed/";
-    var cnbc = "https://www.cnbc.com/id/19854910/device/rss/rss.html";
+    var cnbc = "https://beebom.com/feed/";
     const ul = document.getElementById("verge");
     const cr = document.getElementById("crunch");
     const cn = document.getElementById("cnbc");
@@ -193,8 +212,8 @@
             link4.setAttribute("onclick", "if (navigator.share) {navigator.share({title:'" + entry.title + "',text:'shared from Headliner',url: '" + entry.link + "',}).then(() => console.log('Successful share'))}")
             link4.innerHTML = `${'<img src="https://img.icons8.com/flat_round/64/000000/share--v1.png"/>'}`;
             link4.setAttribute("class", "washare")
-            h4.innerHTML = `${entry.title + " <small>-CNBC Tech"}`;
-            link.innerHTML = `${entry.description}`;
+            h4.innerHTML = `${entry.title + " <small>-Beebom"}`;
+            link.innerHTML = `${entry.summary}`;
             line.innerHTML = `${"<hr>"}`;
             link.setAttribute("href", entry.link)
             link.setAttribute("target","_blank")
