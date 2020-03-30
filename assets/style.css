@@ -216,7 +216,7 @@ input:checked + .slider:before {
   clear: both;
   vertical-align: middle;
   display: inline;
-  width: 30px;
+  width: 35px;
 }
 
 .ul-head {

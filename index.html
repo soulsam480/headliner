@@ -187,7 +187,7 @@
               line = createNode("span");
               link4 = createNode("a")
           
-          link4.setAttribute("onclick", "if (navigator.share) {navigator.share({title:'"+ item.title +"',text:'shared from Headliner',url: '"+item.url+"',}).then(() => console.log('Successful share')).catch((error) => console.log('Error sharing', error));}")
+          link4.setAttribute("onclick", "if (navigator.share) {navigator.share({title:'"+ item.title +"',text:'shared from Headliner',url: '"+item.url+"',}).then(() => console.log('Successful share'))}")
           link4.innerHTML = `${'<img src="https://img.icons8.com/flat_round/64/000000/share--v1.png"/>'}`;
           link.setAttribute("href", item.url);
           link.setAttribute("target", "_blank");

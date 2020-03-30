@@ -101,7 +101,6 @@
 
     feednami.load(url3, result => {
       if (result.error) {
-        console.log(result.error);
       } else {
         var entries = result.feed.entries;
         for (var i = 0; i < entries.length; i++) {
@@ -114,7 +113,7 @@
             h4 = createNode("h3");
             link4 = createNode("a");
 
-            link4.setAttribute("onclick", "if (navigator.share) {navigator.share({title:'" + entry.title + "',text:'shared from Headliner',url: '" + entry.link + "',}).then(() => console.log('Successful share')).catch((error) => console.log('Error sharing', error));}")
+            link4.setAttribute("onclick", "if (navigator.share) {navigator.share({title:'" + entry.title + "',text:'shared from Headliner',url: '" + entry.link + "',}).then(() => console.log('Successful share'))}")
             link4.innerHTML = `${'<b>Share this article</b> <img src="https://img.icons8.com/flat_round/64/000000/share--v1.png"/>'}`;
             link4.setAttribute("class", "washare")
             line.innerHTML = `${"<hr>"}`;
@@ -134,7 +133,6 @@
     });
     feednami.load(url4, function (result) {
       if (result.error) {
-        console.log(result.error);
       } else {
         var entries = result.feed.entries;
         for (var i = 0; i < entries.length; i++) {
@@ -148,7 +146,7 @@
             img = createNode("img");
             link4 = createNode("a");
 
-            link4.setAttribute("onclick", "if (navigator.share) {navigator.share({title:'" + entry.title + "',text:'shared from Headliner',url: '" + entry.url + "',}).then(() => console.log('Successful share')).catch((error) => console.log('Error sharing', error));}")
+            link4.setAttribute("onclick", "if (navigator.share) {navigator.share({title:'" + entry.title + "',text:'shared from Headliner',url: '" + entry.url + "',}).then(() => console.log('Successful share'))}")
             link4.innerHTML = `${'<b>Share this article</b> <img src="https://img.icons8.com/flat_round/64/000000/share--v1.png"/>'}`;
             link4.setAttribute("class", "washare")
             line.innerHTML = `${"<hr>"}`;
@@ -172,7 +170,6 @@
     });
     feednami.load(url, function (result) {
       if (result.error) {
-        console.log(result.error);
       } else {
         var entries = result.feed.entries;
         for (var i = 0; i < entries.length; i++) {
@@ -185,7 +182,7 @@
             line = createNode("span");
             link4 = createNode("a");
 
-            link4.setAttribute("onclick", "if (navigator.share) {navigator.share({title:'" + entry.title + "',text:'shared from Headliner',url: '" + entry.url + "',}).then(() => console.log('Successful share')).catch((error) => console.log('Error sharing', error));}")
+            link4.setAttribute("onclick", "if (navigator.share) {navigator.share({title:'" + entry.title + "',text:'shared from Headliner',url: '" + entry.url + "',}).then(() => console.log('Successful share'))}")
             link4.innerHTML = `${'<b>Share this article</b> <img src="https://img.icons8.com/flat_round/64/000000/share--v1.png"/>'}`;
             link4.setAttribute("class", "washare")
             h4.innerHTML = `${entry.title}`;
