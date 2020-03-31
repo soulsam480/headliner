@@ -17,6 +17,7 @@ self.addEventListener("install", event => {
           "./assets/js/infin.js",
           "./assets/js/infit.js",
           "./assets/js/infil.js",
+          "./assets/js/common.js",
           "./assets/js/lazyload.min.js",
           "./assets/img/android-chrome-192x192.png",
           "./assets/img/apple-touch-icon.png",

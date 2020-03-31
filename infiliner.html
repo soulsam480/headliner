@@ -43,7 +43,7 @@
 </head>
 
 <body>
-  
+
   <div class="content">
     <div class="ad2hs-prompt">
       <div class="modal-content">
@@ -77,12 +77,12 @@
     </nav>
     <br />
     <hr />
-        <!-- The top nav on mobile phones. display none in mobile-->
+    <!-- The top nav on mobile phones. display none in mobile-->
 
-    <nav style="text-align: center;" class="main-nav">
-     
+    <nav style="text-align: center;" class="main-nav" id="navbar">
+
       <span>
-     <a href="index.html" class="nav-link2">Headliner</a>
+        <a href="index.html" class="nav-link2">Headliner</a>
       </span>
       <span>|</span>
       <span>
@@ -95,9 +95,9 @@
     </nav>
     <!-- The bottom nav on mobile phones. display none in desktop-->
     <nav style="text-align: center;" class="main-bt">
-     
+
       <span>
-     <a href="index.html" class="nav-link2">Headliner</a>
+        <a href="index.html" class="nav-link2">Headliner</a>
       </span>
       <span>|</span>
       <span>
@@ -109,7 +109,7 @@
       </span>
     </nav>
 
-    
+
     <div>
       <ul id="verge" class="techul"></ul>
     </div>
@@ -123,50 +123,8 @@
   </div>
 </body>
 
-<script>
-  const body = document.body;
-  function dToggle() {
-    body.classList.toggle("darkmode");
-  }
+<script src="./assets/js/common.js">
 
-  var deferredPrompt;
-
-window.addEventListener("beforeinstallprompt", function(e) {
-  // Prevent Chrome 67 and earlier from automatically showing the prompt
-  e.preventDefault();
-  // Stash the event so it can be triggered later.
-  deferredPrompt = e;
-
-  showAddToHomeScreen();
-});
-
-function showAddToHomeScreen() {
-  var a2hsBtn = document.querySelector(".ad2hs-prompt");
-
-  a2hsBtn.style.display = "block";
-
-  document.getElementById("add").addEventListener("click", addToHomeScreen);
-}
-function addToHomeScreen() {
-  var a2hsBtn = document.querySelector(".ad2hs-prompt"); // hide our user interface that shows our A2HS button
-  a2hsBtn.style.display = "none"; // Show the prompt
-  deferredPrompt.prompt(); // Wait for the user to respond to the prompt
-  deferredPrompt.userChoice.then(function(choiceResult) {
-    if (choiceResult.outcome === "accepted") {
-      console.log("User accepted the A2HS prompt");
-    } else {
-      a2hsBtn.style.display = "none"; // Show the prompt
-
-      console.log("User dismissed the A2HS prompt");
-    }
-
-    deferredPrompt = null;
-  });
-}
-
-function Cancel() {
-  document.querySelector(".ad2hs-prompt").style.display = "none";
-}
 
 </script>
 <script src="./assets/js/infin.js"></script>

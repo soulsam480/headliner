@@ -232,6 +232,7 @@ input:checked + .slider:before {
 .main-nav{
   background-color: rgb(214, 214, 214);
   margin-bottom:10px;
+  padding: 8px 0 8px 0;
 }
 @media   screen and (max-width:768px){
   .main-nav{
@@ -244,7 +245,7 @@ input:checked + .slider:before {
   }
 }
 .darkmode .content .main-nav{
-  background-color:rgba(53, 53, 53, 0.795);
+  background-color:rgb(53, 53, 53);
 }
 .darkmode .content .main-bt{
   background-color:rgb(53, 53, 53);
@@ -264,4 +265,10 @@ input:checked + .slider:before {
   border-top: 1px solid hsla(0, 0%, 0%, 0.795);
   border-bottom: 1px solid hsla(0, 0%, 0%, 0.795);
 
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 1002px;
 }
