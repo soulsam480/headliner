@@ -25,6 +25,7 @@
       }
     }
   </script>
+  
   <link rel="dns-prefetch preconnect" href="https://fonts.gstatic.com">
   <link rel="dns-prefetch preconnect" href="https://fonts.google.com">
   <link rel="preload" as="image/png" href='https://img.icons8.com/flat_round/64/000000/share--v1.png' >
@@ -133,101 +134,49 @@
 
 <script>
   const body = document.body;
-  function dToggle() {
-    body.classList.toggle("darkmode");
-  }</script>
-<script>
-  //the code for custom add to homescreen prompt
-  var deferredPrompt;
+function dToggle() {
+  body.classList.toggle("darkmode");
+}
+//the code for custom add to homescreen prompt
+var deferredPrompt;
 
-  window.addEventListener("beforeinstallprompt", function (e) {
-    // Prevent Chrome 67 and earlier from automatically showing the prompt
-    e.preventDefault();
-    // Stash the event so it can be triggered later.
-    deferredPrompt = e;
+window.addEventListener("beforeinstallprompt", function(e) {
+  // Prevent Chrome 67 and earlier from automatically showing the prompt
+  e.preventDefault();
+  // Stash the event so it can be triggered later.
+  deferredPrompt = e;
 
-    showAddToHomeScreen();
+  showAddToHomeScreen();
+});
+
+function showAddToHomeScreen() {
+  var a2hsBtn = document.querySelector(".ad2hs-prompt");
+
+  a2hsBtn.style.display = "block";
+
+  document.getElementById("add").addEventListener("click", addToHomeScreen);
+}
+function addToHomeScreen() {
+  var a2hsBtn = document.querySelector(".ad2hs-prompt"); // hide our user interface that shows our A2HS button
+  a2hsBtn.style.display = "none"; // Show the prompt
+  deferredPrompt.prompt(); // Wait for the user to respond to the prompt
+  deferredPrompt.userChoice.then(function(choiceResult) {
+    if (choiceResult.outcome === "accepted") {
+      console.log("User accepted the A2HS prompt");
+    } else {
+      a2hsBtn.style.display = "none"; // Show the prompt
+
+      console.log("User dismissed the A2HS prompt");
+    }
+
+    deferredPrompt = null;
   });
+}
 
-  function showAddToHomeScreen() {
-    var a2hsBtn = document.querySelector(".ad2hs-prompt");
-
-    a2hsBtn.style.display = "block";
-
-    document.getElementById("add").addEventListener("click", addToHomeScreen);
-  }
-  function addToHomeScreen() {
-    var a2hsBtn = document.querySelector(".ad2hs-prompt"); // hide our user interface that shows our A2HS button
-    a2hsBtn.style.display = "none"; // Show the prompt
-    deferredPrompt.prompt(); // Wait for the user to respond to the prompt
-    deferredPrompt.userChoice.then(function (choiceResult) {
-      if (choiceResult.outcome === "accepted") {
-        console.log("User accepted the A2HS prompt");
-      } else {
-        a2hsBtn.style.display = "none"; // Show the prompt
-
-        console.log("User dismissed the A2HS prompt");
-      }
-
-      deferredPrompt = null;
-    });
-  }
-</script>
-<script>
-  function Cancel() {
-    document.querySelector(".ad2hs-prompt").style.display = "none";
-  }
-
-  const url =
-    "https://newsapi.org/v2/top-headlines?country=in&pageSize=100&apiKey=05aefe5393fc46d7a6e21a27b16718c0"; // Get 10 random users
-  const ul = document.getElementById("news");
-  //code for creation of elements for the data display
-  function createNode(element) {
-    return document.createElement(element); // Create the type of element you pass in the parameters
-  }
-
-  function append(parent, el) {
-    return parent.appendChild(el); // Append the second parameter(element) to the first one
-  }
-  //fetch() to get news from api
-  function getData() {
-    fetch(url)
-      .then(resp => resp.json()) // Transform the data into json
-      .then(function (data) {
-        let authors = data.articles;
-        return authors.map(item => {
-          let li = createNode("li"),
-              h4 = createNode("h3");
-              p2 = createNode("p");
-              img = createNode("img");
-              link = createNode("a");
-              line = createNode("span");
-              link4 = createNode("a")
-          
-          link4.setAttribute("onclick", "if (navigator.share) {navigator.share({title:'"+ item.title +"',text:'shared from Headliner',url: '"+item.url+"',}).then(() => console.log('Successful share'))}")
-          link4.innerHTML = `${'<img src="https://img.icons8.com/flat_round/64/000000/share--v1.png"/>'}`;
-          link.setAttribute("href", item.url);
-          link.setAttribute("target", "_blank");
-          img.setAttribute("src", item.urlToImage);
-          h4.innerHTML = `${item.title}`;
-          link.innerHTML = `${"Link to article >>"}`;
-          p2.innerHTML = `${item.description}`;
-          link4.setAttribute("class","washare")
-          line.innerHTML = `${"<hr>"}`;
-
-          append(li, h4);
-          append(li, img);
-          append(li, p2);
-          append(li, link);
-          append(li,link4)
-          append(li, line);
-          append(ul, li);
-        });
-      });
-  }
-
-  window.onload = getData();
+function Cancel() {
+  document.querySelector(".ad2hs-prompt").style.display = "none";
+}
 
 </script>
-
+<script src="./assets/js/index.js"></script>
 </html>

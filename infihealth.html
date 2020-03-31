@@ -46,6 +46,25 @@
 
 <body>
   <div class="content">
+    <div class="ad2hs-prompt">
+      <div class="modal-content">
+        <img src="./assets/img/android-chrome-192x192.png" alt="" style="width:30%;margin:auto;padding:20px 0 0 0" />
+        <p style="padding: 10px 20px 5px 20px; font-size:20px;">
+          Add Headliner to your Home Screen ?
+        </p>
+        <p style="padding: 0 30px 5px 30px; font-size:15px;  line-height:1.5em">
+          Get to Headliner quickly by adding it to your home screen.
+        </p>
+        <hr />
+        <p id="add" style="font-weight: bold;color: rgb(8, 142, 252);cursor:pointer;">
+          Add to Home Screen
+        </p>
+        <hr />
+        <p onclick="Cancel()" style="font-weight: bold;color: red; cursor:pointer;">
+          cancel
+        </p>
+      </div>
+    </div>
     <nav style="text-align: center;">
       <span class="nav-link" style="float: left;">
         <h2>Infi-Life</h2>
@@ -115,139 +134,49 @@
   function dToggle() {
     body.classList.toggle("darkmode");
   }
-</script>
-<script>
-  $(document).ready(() => {
-    var vouge = "https://www.vogue.in/feed";
-    var mens = "https://www.mensjournal.com/feed/";
-    var camila = "https://camillestyles.com/feed/";
-    const vo = document.getElementById("vouge");
-    const me = document.getElementById("mens");
-    const ca = document.getElementById("camila");
 
-    function createNode(element) {
-      return document.createElement(element); // Create the type of element you pass in the parameters
+  var deferredPrompt;
+
+window.addEventListener("beforeinstallprompt", function(e) {
+  // Prevent Chrome 67 and earlier from automatically showing the prompt
+  e.preventDefault();
+  // Stash the event so it can be triggered later.
+  deferredPrompt = e;
+
+  showAddToHomeScreen();
+});
+
+function showAddToHomeScreen() {
+  var a2hsBtn = document.querySelector(".ad2hs-prompt");
+
+  a2hsBtn.style.display = "block";
+
+  document.getElementById("add").addEventListener("click", addToHomeScreen);
+}
+function addToHomeScreen() {
+  var a2hsBtn = document.querySelector(".ad2hs-prompt"); // hide our user interface that shows our A2HS button
+  a2hsBtn.style.display = "none"; // Show the prompt
+  deferredPrompt.prompt(); // Wait for the user to respond to the prompt
+  deferredPrompt.userChoice.then(function(choiceResult) {
+    if (choiceResult.outcome === "accepted") {
+      console.log("User accepted the A2HS prompt");
+    } else {
+      a2hsBtn.style.display = "none"; // Show the prompt
+
+      console.log("User dismissed the A2HS prompt");
     }
 
-    function append(parent, el) {
-      return parent.appendChild(el); // Append the second parameter(element) to the first one
-    }
-
-    feednami.load(vouge, result => {
-      if (result.error) {
-      } else {
-        var entries = result.feed.entries;
-        
-        for (var i = 0; i < 2; i++) {
-          var entry = entries[i];
-          return entries.map(entry => {
-           entry.description = entry.description.substr(0, 700) + '...';
-
-            let li = createNode("li");
-            link = createNode("a");
-            line = createNode("span");
-            h4 = createNode("h3");
-            link4 = createNode("a");
-            img = createNode("img")
-            p = createNode('p')
-
-            
-            link4.setAttribute("onclick", "if (navigator.share) {navigator.share({title:'" + entry.title + "',text:'shared from Headliner',url: '" + entry.url + "',}).then(() => console.log('Successful share'))}")
-            link4.innerHTML = `${' <img src="https://img.icons8.com/flat_round/64/000000/share--v1.png"/>'}`;
-            link4.setAttribute("class", "washare")
-            line.innerHTML = `${"<hr>"}`;
-            h4.innerHTML = `${entry.title + " <small>-Vouge India</small>"}`;
-            img.setAttribute("src",entry.image.url)
-            link.setAttribute("href", entry.link);
-            link.setAttribute("target", "_blank");
-            h4.setAttribute("onclick","window.open('"+ entry.link +"')")
-            p.innerHTML = `${entry.description}`;
-          
-            append(li, h4);
-            append(link,img)
-            append(link, link4);
-            append(link,p)
-            append(li, link);
-            append(li, line);
-            append(vo, li);
-          });
-        }
-      }
-    });    feednami.load(mens, result => {
-      if (result.error) {
-      } else {
-        var entries = result.feed.entries;
-        
-        for (var i = 0; i < 2; i++) {
-          var entry = entries[i];
-          return entries.map(entry => {
-           entry.description = entry.description.substr(0, 600) + '...';
-
-            let li = createNode("li");
-            link = createNode("a");
-            line = createNode("span");
-            h4 = createNode("h3");
-            link4 = createNode("a");
-            img = createNode("img")
-            p = createNode('p')
-            
-            link4.setAttribute("onclick", "if (navigator.share) {navigator.share({title:'" + entry.title + "',text:'shared from Headliner',url: '" + entry.url + "',}).then(() => console.log('Successful share'))}")
-            link4.innerHTML = `${' <img src="https://img.icons8.com/flat_round/64/000000/share--v1.png"/>'}`;
-            link4.setAttribute("class", "washare")
-            line.innerHTML = `${"<hr>"}`; 
-            h4.innerHTML = `${entry.title + " <small>-Men's Journal</small>"}`;
-            p.innerHTML = `${entry.description}`;
-            link.setAttribute("href", entry.link);
-            link.setAttribute("target", "_blank");
-            h4.setAttribute("onclick","window.open('"+ entry.link +"')")
-            img.setAttribute("src",entry.enclosures[0].url)
-            append(li, h4);
-            append(link,img)
-            append(link, link4);
-            append(link,p)
-            append(li, link);
-            append(li, line);
-            append(me, li);
-          });
-        }
-      }
-    });      feednami.load(camila, result => {
-      if (result.error) {
-      } else {
-        var entries = result.feed.entries;
-        
-        for (var i = 0; i < 2; i++) {
-          var entry = entries[i];
-          return entries.map(entry => {
-           entry.description = entry.description.substr(0, 600) + '...';
-            let li = createNode("li");
-            link = createNode("a");
-            line = createNode("span");
-            h4 = createNode("h3");
-            link4 = createNode("a");
-            
-            
-            link4.setAttribute("onclick", "if (navigator.share) {navigator.share({title:'" + entry.title + "',text:'shared from Headliner',url: '" + entry.url + "',}).then(() => console.log('Successful share'))}")
-            link4.innerHTML = `${' <img src="https://img.icons8.com/flat_round/64/000000/share--v1.png"/>'}`;
-            link4.setAttribute("class", "washare")
-            line.innerHTML = `${"<hr>"}`;
-            h4.innerHTML = `${entry.title + " <small>-Camille Styles</small>"}`;
-            link.innerHTML = `${entry.description}`;
-            link.setAttribute("href", entry.link);
-            link.setAttribute("target", "_blank");
-            h4.setAttribute("onclick","window.open('"+ entry.link +"')")
-            append(li, h4);
-            append(li, link);
-            append(li, link4);
-
-            append(li, line);
-            append(ca, li);
-          });
-        }
-      }
-    });
-    
+    deferredPrompt = null;
   });
+}
+
+function Cancel() {
+  document.querySelector(".ad2hs-prompt").style.display = "none";
+}
+
+</script>
+<script src="./assets/js/infil.js">
+  
 </script>
 
 </html>
