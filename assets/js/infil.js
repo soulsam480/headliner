@@ -52,7 +52,7 @@ $(document).ready(() => {
 
           append(li, h4);
           append(link, img);
-          append(link, link4);
+          append(li, link4);
           append(link, p);
           append(li, link);
           append(li, line);
@@ -98,7 +98,7 @@ $(document).ready(() => {
           img.setAttribute("src", entry.enclosures[0].url);
           append(li, h4);
           append(link, img);
-          append(link, link4);
+          append(li, link4);
           append(link, p);
           append(li, link);
           append(li, line);

@@ -8,6 +8,9 @@ self.addEventListener("install", event => {
       .then(cache =>
         cache.addAll([
           "./assets/style.css",
+          "infiliner.html",
+          "infitech.html",
+          "infihealth.html",
           "./assets/js/index.js",
           "./assets/js/jquery-3.4.1.slim.min.js",
           "./assets/js/feednami-client-v1.1.js",
