@@ -1,11 +1,15 @@
 .hamburger {
   display: block;
+  bottom: 76px;
+  right: 30px;
   width: 28px;
   height: 27px;
+  position: fixed;
   z-index: 999999;
   background-color: rgb(53, 53, 53);
-  float:right;
-  padding-right: 10px;
+  border-radius: 50%;
+  padding: 12px;
+  box-shadow: 2px 2px 11px 1px rgb(71, 71, 71);
 }
 @media only screen and (min-width: 768px) {
   .hamburger {
@@ -19,7 +23,7 @@
   top: 50%;
   width: 28px;
   height: 4px;
-  background-color: rgb(214, 214, 214);
+  background-color: white;
   display: none;
   -webkit-transition-duration: 0s;
   -moz-transition-duration: 0s;
@@ -45,7 +49,7 @@
 .hamburger span:after {
   width: 28px;
   height: 4px;
-  background-color: rgb(214, 214, 214);
+  background-color: white;
   display: block;
 }
 

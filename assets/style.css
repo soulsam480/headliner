@@ -262,6 +262,7 @@ input:checked + .slider:before {
   left: 0;
   z-index: 1000;
   background-color: rgb(53, 53, 53);
+  text-align: center;
   width: 100%;
   padding: 8px 0 8px 0;
   border-top: 1px solid hsla(0, 0%, 0%, 0.795);

@@ -1,4 +1,4 @@
-var cacheName = "static";
+var cacheName = "static-v2";
 
 // Cache our known resources during install
 self.addEventListener("install", event => {
@@ -8,6 +8,7 @@ self.addEventListener("install", event => {
       .then(cache =>
         cache.addAll([
           "./assets/style.css",
+          "./assets/menustyle.css",
           "infiliner.html",
           "infitech.html",
           "infihealth.html",
@@ -34,6 +35,19 @@ self.addEventListener("install", event => {
   );
 });
 
+self.addEventListener("activate", function(event) {
+  event.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.map(function(cacheName) {
+          if (cacheName !== cacheName &&  cacheName.startsWith("static")) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+  );
+});
 
 // Cache any new resources as they are fetched
 self.addEventListener("fetch", event => {
@@ -68,3 +82,4 @@ self.addEventListener("fetch", event => {
       });
   }
 });
+
