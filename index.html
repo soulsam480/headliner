@@ -14,9 +14,10 @@
         // Register the service worker
         navigator.serviceWorker
           .register("./sw.js", {
-            scope: "."
+            scope: ".."
           })
-          .then(function (reg) {
+          .then( (reg) => {
+            reg.update();
             console.log(
               "[PWA Builder] Service worker has been registered for scope: " +
               reg.scope
@@ -139,12 +140,12 @@
       <span>
         <a href="infihealth.html" class="nav-link2">infi-life</a>
       </span>
-      <a class="hamburger menu-btn"  href="javascript:void(0)"><span></span></a>
 
     </nav>
+    <a class="hamburger menu-btn"  href="javascript:void(0)"><span></span></a>
 
   <!-- THE MOBILE BASE BOTTOM NAV ENDS HERE-->
-
+    <!-- the feature nav starts here will be same across whole page-->
   <div class="main-menu-wrap">
     <div class="main-menu">
       <a onclick="">Test</a>
