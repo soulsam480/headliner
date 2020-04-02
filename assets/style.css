@@ -248,27 +248,52 @@ input:checked + .slider:before {
   background-color:rgb(53, 53, 53);
 }
 .darkmode .content .main-bt{
-  background-color:rgb(53, 53, 53);
+  background-color:rgb(214, 214, 214);
   border-top: 1px solid rgba(255, 255, 255, 0.795);
   border-bottom: 1px solid rgba(255, 255, 255, 0.795);
-
-}
+  color: black !important;
+} 
+.darkmode .content .main-bt a{
+  color: black !important;
+} 
 .main-bt{
   position: fixed;
   bottom: 0;
   left: 0;
   z-index: 1000;
-  background-color: rgb(214, 214, 214);
-  text-align: center;
+  background-color: rgb(53, 53, 53);
   width: 100%;
   padding: 8px 0 8px 0;
   border-top: 1px solid hsla(0, 0%, 0%, 0.795);
   border-bottom: 1px solid hsla(0, 0%, 0%, 0.795);
-
+  color: white;
+}
+.main-bt a{
+  color: white;
 }
 
 .sticky {
   position: fixed;
   top: 0;
   width: 1002px;
+}
+
+.darkmode .main-menu-wrap{
+  background-color: rgb(53, 53, 53);
+  color: white;
+}
+.darkmode .hamburger{
+  background-color:rgb(214, 214, 214);
+}
+.darkmode .hamburger span{
+  background-color:rgb(53, 53, 53) ;
+}
+.darkmode .hamburger span:before, .hamburger span:after{
+  background-color:rgb(53, 53, 53) ;
+
+}
+
+.darkmode  .hamburger span:after{
+  background-color:rgb(53, 53, 53) ;
+
 }

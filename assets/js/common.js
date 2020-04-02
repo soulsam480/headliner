@@ -58,3 +58,34 @@ if (window.pageYOffset >= sticky) {
   navbar.classList.remove("sticky");
 }
 }
+
+$(function () {
+  var clicked = 0;
+  $(".menu-btn").click(function (e) {
+    var screen_height = $(window).height();
+
+    $(this).toggleClass("active");
+    $("body").toggleClass("menu-active");
+
+    if (clicked == 0) {
+      $(".main-menu-wrap").height("300px");
+      clicked = 1;
+      return;
+    }
+
+    if (clicked == 1) {
+      $(".main-menu-wrap").removeAttr("style");
+      clicked = 0;
+      return;
+    }
+  });
+  $(".main-menu").click(function (e) {
+    if (clicked == 1) {
+      $(".main-menu-wrap").removeAttr("style");
+      $(".menu-btn").removeClass("active");
+
+      clicked = 0;
+      return;
+    }
+  });
+});
