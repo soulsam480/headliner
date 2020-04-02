@@ -35,7 +35,7 @@ $(document).ready(() => {
             "if (navigator.share) {navigator.share({title:'" +
               entry.title +
               "',text:'shared from Headliner',url: '" +
-              entry.url +
+              entry.link +
               "',}).then(() => console.log('Successful share'))}"
           );
           link4.innerHTML = `${' <img src="https://img.icons8.com/flat_round/64/000000/share--v1.png"/>'}`;
