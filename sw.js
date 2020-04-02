@@ -1,7 +1,8 @@
-var cacheName = "static-v2";
+var cacheName = "static-v4";
 
 // Cache our known resources during install
 self.addEventListener("install", event => {
+  self.skipWaiting();
   event.waitUntil(
     caches
       .open(cacheName)
@@ -35,16 +36,18 @@ self.addEventListener("install", event => {
   );
 });
 
-self.addEventListener("activate", function(event) {
+self.addEventListener('activate', event => {
+  // delete any caches that aren't in expectedCaches
+  // which will get rid of static-v1
   event.waitUntil(
-    caches.keys().then(function(cacheNames) {
-      return Promise.all(
-        cacheNames.map(function(cacheName) {
-          if (cacheName !== cacheName &&  cacheName.startsWith("static")) {
-            return caches.delete(cacheName);
-          }
-        })
-      );
+    caches.keys().then(keys => Promise.all(
+      keys.map(key => {
+        if (!cacheName.includes(key)) {
+          return caches.delete(key);
+        }
+      })
+    )).then(() => {
+      console.log('V2 now ready to handle fetches!');
     })
   );
 });
