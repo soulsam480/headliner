@@ -126,12 +126,13 @@
   background: rgb(214, 214, 214);
   width: 100vw;
   height: 0;
-  transition: height 0.6s cubic-bezier(0.5, 1, 0.22, 1);
-  -webkit-transition: height 0.6s cubic-bezier(0.5, 1, 0.22, 1);
+  transition: height 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -webkit-transition: height 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .main-menu {
-  padding-top: 50px;
+  font-size: 18px;
+  padding: 10px;
   transition: opacity 0.5s ease-in-out;
   -webkit-transition: opacity 0.5s ease-in-out;
 }
@@ -144,8 +145,7 @@
 
 .main-menu a {
   display: block;
-  font-size: 1.5em;
-  font-weight: 700;
+  font-weight: bold;
   margin-bottom: 10px;
   padding: 10px;
   text-decoration: none;
@@ -154,4 +154,13 @@
 .main-menu a:hover,
 .main-menu a:active {
   color: #004d67;
+}
+.main-menu th,td{
+  padding-left: 5px;
+}
+.main-menu td{
+  padding-top: 10px;
+}
+table{
+  width: 85%;
 }
