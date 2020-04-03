@@ -16,7 +16,7 @@
           .register("./sw.js", {
             scope: ".."
           })
-          .then( (reg) => {
+          .then((reg) => {
             reg.update();
             console.log(
               "[PWA Builder] Service worker has been registered for scope: " +
@@ -26,10 +26,10 @@
       }
     }
   </script>
-  
+
   <link rel="dns-prefetch preconnect" href="https://fonts.gstatic.com">
   <link rel="dns-prefetch preconnect" href="https://fonts.google.com">
-  <link rel="preload" as="image/png" href='https://img.icons8.com/flat_round/64/000000/share--v1.png' >
+  <link rel="preload" as="image/png" href='https://img.icons8.com/flat_round/64/000000/share--v1.png'>
   <meta property="og:title" content="Headliner | Read top Headlines." />
   <meta property="og:description" content="Read top national and international headlines on Headliner." />
   <meta property="og:site_name" content="Headliner" />
@@ -50,30 +50,30 @@
   <meta name="msapplication-TileColor" content="#da532c" />
   <meta name="theme-color" content="#ffffff" />
   <title>Headliner | Read Top Regional Headlines</title>
-<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-<script src="./assets/js/jquery-3.4.1.slim.min.js"></script>
-<script>
-  var OneSignal = window.OneSignal || [];
-  OneSignal.push(function() {
-    OneSignal.init({
-      appId: "8e22c8ef-621e-4976-a67e-014e6c75cf29",
-      promptOptions: {
-        /* These prompt options values configure both the HTTP prompt and the HTTP popup. */
-        /* actionMessage limited to 90 characters */
-        actionMessage: "We'd like to show you notifications for the latest news and updates.",
-        /* acceptButtonText limited to 15 characters */
-        acceptButtonText: "ALLOW",
-        /* cancelButtonText limited to 15 characters */
-        cancelButtonText: "NO THANKS"
-      }
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+  <script src="./assets/js/jquery-3.4.1.slim.min.js"></script>
+  <script>
+    var OneSignal = window.OneSignal || [];
+    OneSignal.push(function () {
+      OneSignal.init({
+        appId: "8e22c8ef-621e-4976-a67e-014e6c75cf29",
+        promptOptions: {
+          /* These prompt options values configure both the HTTP prompt and the HTTP popup. */
+          /* actionMessage limited to 90 characters */
+          actionMessage: "We'd like to show you notifications for the latest news and updates.",
+          /* acceptButtonText limited to 15 characters */
+          acceptButtonText: "ALLOW",
+          /* cancelButtonText limited to 15 characters */
+          cancelButtonText: "NO THANKS"
+        }
+      });
+      OneSignal.showSlidedownPrompt();
     });
-    OneSignal.showSlidedownPrompt();
-  });
-</script>
+  </script>
 </head>
 
 <body>
-<!-- all the navigation stuctures are the same for all of the pages-->
+  <!-- all the navigation stuctures are the same for all of the pages-->
   <div class="ad2hs-prompt">
     <div class="modal-content">
       <img src="./assets/img/android-chrome-192x192.png" alt="" style="width:30%;margin:auto;padding:20px 0 0 0" />
@@ -95,7 +95,7 @@
   </div>
   <div class="content">
     <!--the top header for main section pages-->
-    <nav style="text-align: center;" >
+    <nav style="text-align: center;">
       <span class="nav-link" style="float: left;">
         <h2>Headliner</h2>
       </span>
@@ -112,9 +112,9 @@
     <hr />
     <!--The desktop navbar -->
     <nav style="text-align: center;" class="main-nav" id="navbar">
-     
+
       <span>
-     <a href="infiliner.html" class="nav-link2">Infi-News</a>
+        <a href="infiliner.html" class="nav-link2">Infi-News</a>
       </span>
       <span>|</span>
       <span>
@@ -126,9 +126,9 @@
       </span>
     </nav>
     <!-- ENDS THE DESKTOP NAV-->
-     <!-- The bottom nav on mobile phones. display none in desktop-->
-     <nav  class="main-bt">
-     
+    <!-- The bottom nav on mobile phones. display none in desktop-->
+    <nav class="main-bt">
+
       <span>
         <a href="infiliner.html" class="nav-link2">Infi-News</a>
       </span>
@@ -142,40 +142,41 @@
       </span>
 
     </nav>
-    <a class="hamburger menu-btn"  href="javascript:void(0)"><span></span></a>
+    <a class="hamburger menu-btn" href="javascript:void(0)"><span></span></a>
 
-  <!-- THE MOBILE BASE BOTTOM NAV ENDS HERE-->
+    <!-- THE MOBILE BASE BOTTOM NAV ENDS HERE-->
     <!-- the feature nav starts here will be same across whole page-->
-  <div class="main-menu-wrap">
-    <div class="main-menu">
-      <table>
-        <tr>
-          <th>Explore</th>
-          <th>More</th>
-        </tr>
-        <tr>
-          <td>TOI</td>
-          <td>About</td>
-        </tr>
-        <tr>
-          <td>NDTV</td>
-          <td>Contact</td>
-        </tr>
-         <tr>
-          <td>The Hindu</td>
-        </tr>
-        <tr>
-          <td>The Quint</td>
-        </tr>
-        <tr>
-          <td>Scroll.in</td>        </tr>
+    <div class="main-menu-wrap">
+      <div class="main-menu">
+        <table>
           <tr>
-            <td><a href="cat/nyt.html">NYT</a></td>
+            <th>Explore</th>
+            <th>More</th>
+          </tr>
+          <tr>
+            <td><a href="./cat/toi.html">TOI</a></td>
+            <td>About</td>
+          </tr>
+          <tr>
+            <td><a href="./cat/ndtv.html">NDTV</a></td>
+            <td>Contact</td>
+          </tr>
+          <tr>
+            <td><a href="./cat/th.html">The Hindu</a></td>
+          </tr>
+          <tr>
+            <td><a href="./cat/tg.html">The Guardian</a></td>
+          </tr>
+          <tr>
+            <td><a href="./cat/bbc.html">BBC</a></td>
+          </tr>
+          <tr>
+            <td><a href="./cat/nyt.html">NYT</a></td>
 
           </tr>
-      </table>
+        </table>
+      </div>
     </div>
-  </div>
     <div>
       <ul id="news">
       </ul>
@@ -194,7 +195,8 @@
 </body>
 
 <script src="./assets/js/common.js">
-  
+
 </script>
 <script src="./assets/js/index.js"></script>
+
 </html>

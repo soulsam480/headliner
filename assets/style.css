@@ -107,6 +107,7 @@ li {
 .techul li img {
   max-width: 100%;
   height: auto;
+  margin:0 !important;
 }
 
 .techul li a {

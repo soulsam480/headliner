@@ -22,7 +22,7 @@
   <meta name="application-name" content="Headliner" />
   <meta name="msapplication-TileColor" content="#da532c" />
   <meta name="theme-color" content="#ffffff" />
-  <title>Headliner Chanel | New York Times</title>
+  <title>Headliner Chanel | BBC World</title>
   <style>
     html,
     body {
@@ -64,7 +64,7 @@
     </div>
     <nav style="text-align: center;">
       <span class="nav-link" style="float: left;">
-        <h2>NYT-World</h2>
+        <h2>BBC-World</h2>
       </span>
       <span class="nav-link" style="float: right;">
         <label class="switch">
@@ -76,18 +76,18 @@
     <br />
     <hr />
     <nav style="text-align: center;" class="main-nav" id="navbar">
-      <span>
-        <a href="../index.html" class="nav-link2">Headliner</a>
-      </span>
-      <span>|</span>
-      <span>
-        <a href="../infiliner.html" class="nav-link2">Infi-News</a>
-      </span>
-      <span>|</span>
-      <span>
-        <a href="../infitech.html" class="nav-link2">Infi-Tech</a>
-      </span>
 
+      <span>
+        <a href="index.html" class="nav-link2">Headliner</a>
+      </span>
+      <span>|</span>
+      <span>
+        <a href="infiliner.html" class="nav-link2">Infi-News</a>
+      </span>
+      <span>|</span>
+      <span>
+        <a href="infitech.html" class="nav-link2">Infi-Tech</a>
+      </span>
 
     </nav>
     <!-- The bottom nav on mobile phones. display none in desktop-->
@@ -131,17 +131,18 @@
             <td><a href="tg.html">The Guardian</a></td>
           </tr>
           <tr>
-            <td><a href="bbc.html">BBC</a></td>
+            <td><a href="bbc.html" style="font-weight: bold;">BBC</a></td>
           </tr>
           <tr>
-            <td><a href="nyt.html" style="font-weight: bold;">NYT</a></td>
+            <td><a href="nyt.html">NYT</a></td>
 
           </tr>
         </table>
+
       </div>
     </div>
     <div>
-      <h3 class="ul-head">New York Times</h3>
+      <h3 class="ul-head">BBC News</h3>
       <ul id="verge" class="techul"></ul>
 
     </div>
@@ -160,7 +161,7 @@
 </script>
 <script>
   $(document).ready(() => {
-    const url = "https://rss.nytimes.com/services/xml/rss/nyt/World.xml";
+    const url = "http://feeds.bbci.co.uk/news/world/rss.xml";
     const ul = document.getElementById("verge");
 
     function createNode(element) {
@@ -197,7 +198,7 @@
             link4.innerHTML = `${'<img src="https://img.icons8.com/flat_round/64/000000/share--v1.png"/>'}`;
             link4.setAttribute("class", "washare");
             line.innerHTML = `${"<hr>"}`;
-            h4.innerHTML = `${entry.title + "  <small>-NYT</small>"}`;
+            h4.innerHTML = `${entry.title + "  <small>-BBC</small>"}`;
             p.innerHTML = `${entry.description}`;
             link.setAttribute("href", entry.link);
             link.setAttribute("target", "_blank");

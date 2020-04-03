@@ -22,7 +22,7 @@
   <meta name="application-name" content="Headliner" />
   <meta name="msapplication-TileColor" content="#da532c" />
   <meta name="theme-color" content="#ffffff" />
-  <title>Headliner Chanel | New York Times</title>
+  <title>Headliner Chanel | The Hindu</title>
   <style>
     html,
     body {
@@ -64,7 +64,7 @@
     </div>
     <nav style="text-align: center;">
       <span class="nav-link" style="float: left;">
-        <h2>NYT-World</h2>
+        <h2>The Hindu</h2>
       </span>
       <span class="nav-link" style="float: right;">
         <label class="switch">
@@ -90,26 +90,26 @@
 
 
     </nav>
-    <!-- The bottom nav on mobile phones. display none in desktop-->
-    <nav class="main-bt">
+      <!-- The bottom nav on mobile phones. display none in desktop-->
+      <nav  class="main-bt">
+     
+        <span>
+          <a href="../index.html" class="nav-link2">Headliner</a>
+        </span>
+        <span>|</span>
+        <span>
+          <a href="../infiliner.html" class="nav-link2">Infi-News</a>
+        </span>
+        <span>|</span>
+        <span>
+          <a href="../infitech.html" class="nav-link2">Infi-Tech</a>
+        </span>
+  
+      </nav>
+     <!-- the feature nav starts here will be same across whole page-->
+     <a class="hamburger menu-btn"  href="javascript:void(0)"><span></span></a>
 
-      <span>
-        <a href="../index.html" class="nav-link2">Headliner</a>
-      </span>
-      <span>|</span>
-      <span>
-        <a href="../infiliner.html" class="nav-link2">Infi-News</a>
-      </span>
-      <span>|</span>
-      <span>
-        <a href="../infitech.html" class="nav-link2">Infi-Tech</a>
-      </span>
-
-    </nav>
-    <!-- the feature nav starts here will be same across whole page-->
-    <a class="hamburger menu-btn" href="javascript:void(0)"><span></span></a>
-
-    <div class="main-menu-wrap">
+     <div class="main-menu-wrap">
       <div class="main-menu">
         <table>
           <tr>
@@ -124,24 +124,23 @@
             <td><a href="ndtv.html">NDTV</a></td>
             <td>Contact</td>
           </tr>
-          <tr>
-            <td><a href="th.html">The Hindu</a></td>
+           <tr>
+            <td><a href="th.html" style="font-weight: bold;">The Hindu</a></td>
           </tr>
           <tr>
-            <td><a href="tg.html">The Guardian</a></td>
+              <td><a href="tg.html">The Guardian</a></td>
           </tr>
           <tr>
-            <td><a href="bbc.html">BBC</a></td>
-          </tr>
-          <tr>
-            <td><a href="nyt.html" style="font-weight: bold;">NYT</a></td>
-
-          </tr>
+            <td><a href="bbc.html">BBC</a></td>        </tr>
+            <tr>
+              <td><a href="nyt.html">NYT</a></td>
+  
+            </tr>
         </table>
       </div>
     </div>
     <div>
-      <h3 class="ul-head">New York Times</h3>
+        <h3 class="ul-head">The Hindu</h3>
       <ul id="verge" class="techul"></ul>
 
     </div>
@@ -159,59 +158,59 @@
 
 </script>
 <script>
-  $(document).ready(() => {
-    const url = "https://rss.nytimes.com/services/xml/rss/nyt/World.xml";
+    $(document).ready(() => {
+    const url = "https://www.thehindu.com/news/feeder/default.rss";
     const ul = document.getElementById("verge");
 
     function createNode(element) {
-      return document.createElement(element); // Create the type of element you pass in the parameters
+        return document.createElement(element); // Create the type of element you pass in the parameters
     }
 
     function append(parent, el) {
-      return parent.appendChild(el); // Append the second parameter(element) to the first one
+        return parent.appendChild(el); // Append the second parameter(element) to the first one
     }
 
     feednami.load(url, result => {
-      if (result.error) {
-      } else {
-        var entries = result.feed.entries;
-        console.log(entries)
-        for (var i = 0; i < entries.length; i++) {
-          var entry = entries[i];
-          return entries.map(entry => {
-            let li = createNode("li");
-            p = createNode("p");
-            link = createNode("a");
-            line = createNode("span");
-            h4 = createNode("h3");
-            link4 = createNode("a");
+        if (result.error) {
+        } else {
+            var entries = result.feed.entries;
+            console.log(entries)
+            for (var i = 0; i < entries.length; i++) {
+                var entry = entries[i];
+                return entries.map(entry => {
+                    let li = createNode("li");
+                    p = createNode("p");
+                    link = createNode("a");
+                    line = createNode("span");
+                    h4 = createNode("h3");
+                    link4 = createNode("a");
 
-            link4.setAttribute(
-              "onclick",
-              "if (navigator.share) {navigator.share({title:'" +
-              entry.title +
-              "',text:'shared from Headliner',url: '" +
-              entry.link +
-              "',}).then(() => console.log('Successful share'))}"
-            );
-            link4.innerHTML = `${'<img src="https://img.icons8.com/flat_round/64/000000/share--v1.png"/>'}`;
-            link4.setAttribute("class", "washare");
-            line.innerHTML = `${"<hr>"}`;
-            h4.innerHTML = `${entry.title + "  <small>-NYT</small>"}`;
-            p.innerHTML = `${entry.description}`;
-            link.setAttribute("href", entry.link);
-            link.setAttribute("target", "_blank");
-            append(li, h4);
-            append(li, link);
-            append(link, p);
-            append(li, link4);
-            append(li, line);
-            append(ul, li);
-          });
+                    link4.setAttribute(
+                        "onclick",
+                        "if (navigator.share) {navigator.share({title:'" +
+                        entry.title +
+                        "',text:'shared from Headliner',url: '" +
+                        entry.link +
+                        "',}).then(() => console.log('Successful share'))}"
+                    );
+                    link4.innerHTML = `${'<img src="https://img.icons8.com/flat_round/64/000000/share--v1.png"/>'}`;
+                    link4.setAttribute("class", "washare");
+                    line.innerHTML = `${"<hr>"}`;
+                    h4.innerHTML = `${entry.title + "  <small>-The Hindu</small>"}`;
+                    p.innerHTML = `${entry.description}`;
+                    link.setAttribute("href", entry.link);
+                    link.setAttribute("target", "_blank");
+                    append(li, h4);
+                    append(li, link);
+                    append(link, p);
+                    append(li, link4);
+                    append(li, line);
+                    append(ul, li);
+                });
+            }
         }
-      }
     });
-  }); 
+}); 
 </script>
 
 </html>

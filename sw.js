@@ -1,4 +1,4 @@
-var cacheName = "static-v4";
+var cacheName = "static-v5";
 
 // Cache our known resources during install
 self.addEventListener("install", event => {
@@ -29,6 +29,12 @@ self.addEventListener("install", event => {
           "./assets/img/icons-512.png",
           "./assets/img/mstile-150x150.png",
           "./assets/img/safari-pinned-tab.svg",
+          "./cat/bbc.html",
+          "./cat/ndtv.html",
+          "./cat/nyt.html",
+          "./cat/tg.html",
+          "./cat/th.html",
+          "./cat/toi.html",
           "offline.html",
           "privacy-policy.html"
         ])

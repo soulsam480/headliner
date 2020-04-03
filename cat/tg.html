@@ -22,7 +22,7 @@
   <meta name="application-name" content="Headliner" />
   <meta name="msapplication-TileColor" content="#da532c" />
   <meta name="theme-color" content="#ffffff" />
-  <title>Headliner Chanel | New York Times</title>
+  <title>Headliner Chanel | The Guardian World</title>
   <style>
     html,
     body {
@@ -64,7 +64,7 @@
     </div>
     <nav style="text-align: center;">
       <span class="nav-link" style="float: left;">
-        <h2>NYT-World</h2>
+        <h2>The Guardian-World</h2>
       </span>
       <span class="nav-link" style="float: right;">
         <label class="switch">
@@ -76,6 +76,7 @@
     <br />
     <hr />
     <nav style="text-align: center;" class="main-nav" id="navbar">
+
       <span>
         <a href="../index.html" class="nav-link2">Headliner</a>
       </span>
@@ -92,7 +93,6 @@
     </nav>
     <!-- The bottom nav on mobile phones. display none in desktop-->
     <nav class="main-bt">
-
       <span>
         <a href="../index.html" class="nav-link2">Headliner</a>
       </span>
@@ -104,6 +104,7 @@
       <span>
         <a href="../infitech.html" class="nav-link2">Infi-Tech</a>
       </span>
+
 
     </nav>
     <!-- the feature nav starts here will be same across whole page-->
@@ -128,20 +129,21 @@
             <td><a href="th.html">The Hindu</a></td>
           </tr>
           <tr>
-            <td><a href="tg.html">The Guardian</a></td>
+            <td><a href="tg.html" style="font-weight: bold;">The Guardian</a></td>
           </tr>
           <tr>
             <td><a href="bbc.html">BBC</a></td>
           </tr>
           <tr>
-            <td><a href="nyt.html" style="font-weight: bold;">NYT</a></td>
+            <td><a href="nyt.html">NYT</a></td>
 
           </tr>
         </table>
+
       </div>
     </div>
     <div>
-      <h3 class="ul-head">New York Times</h3>
+      <h3 class="ul-head">The Guardian</h3>
       <ul id="verge" class="techul"></ul>
 
     </div>
@@ -160,7 +162,7 @@
 </script>
 <script>
   $(document).ready(() => {
-    const url = "https://rss.nytimes.com/services/xml/rss/nyt/World.xml";
+    const url = "https://www.theguardian.com/world/rss";
     const ul = document.getElementById("verge");
 
     function createNode(element) {
@@ -179,6 +181,8 @@
         for (var i = 0; i < entries.length; i++) {
           var entry = entries[i];
           return entries.map(entry => {
+            entry.description = entry.description.substr(0, 600) + "...";
+
             let li = createNode("li");
             p = createNode("p");
             link = createNode("a");
@@ -197,7 +201,7 @@
             link4.innerHTML = `${'<img src="https://img.icons8.com/flat_round/64/000000/share--v1.png"/>'}`;
             link4.setAttribute("class", "washare");
             line.innerHTML = `${"<hr>"}`;
-            h4.innerHTML = `${entry.title + "  <small>-NYT</small>"}`;
+            h4.innerHTML = `${entry.title + "  <small>-The Guardian</small>"}`;
             p.innerHTML = `${entry.description}`;
             link.setAttribute("href", entry.link);
             link.setAttribute("target", "_blank");
