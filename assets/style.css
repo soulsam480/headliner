@@ -23,6 +23,7 @@ li {
   padding: 0;
   margin: 0;
 }
+
 .content {
   max-width: 1000px;
   margin: auto;
@@ -297,4 +298,12 @@ input:checked + .slider:before {
 .darkmode  .hamburger span:after{
   background-color:rgb(53, 53, 53) ;
 
+}
+.darkmode th{
+  background-color:rgb(214, 214, 214) ;
+  color: black;
+}
+th{
+  background-color:rgb(53, 53, 53) ;
+  color: white;
 }

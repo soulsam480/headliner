@@ -68,14 +68,14 @@ self.addEventListener("fetch", event => {
   } else {
     caches
       .match(event.request, { ignoreSearch: true })
-      .then(async function (response) {
+      .then(async  (response) => {
         if (response) {
           return response;
         }
 
         var requestToCache = event.request.clone();
 
-        return fetch(requestToCache).then(function (response) {
+        return fetch(requestToCache).then( (response) => {
           if (!response || response.status !== 200) {
             return response;
           }

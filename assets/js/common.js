@@ -68,7 +68,7 @@ $(function () {
     $("body").toggleClass("menu-active");
 
     if (clicked == 0) {
-      $(".main-menu-wrap").height("300px");
+      $(".main-menu-wrap").height("350px");
       clicked = 1;
       return;
     }
