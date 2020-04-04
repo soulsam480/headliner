@@ -3,30 +3,6 @@
 
 <head>
   <link rel="manifest" href="./assets/manifest.json" />
-
-  <script>
-    if ("serviceWorker" in navigator) {
-      if (navigator.serviceWorker.controller) {
-        console.log(
-          "[PWA Builder] active service worker found, no need to register"
-        );
-      } else {
-        // Register the service worker
-        navigator.serviceWorker
-          .register("./sw.js", {
-            scope: ".."
-          })
-          .then((reg) => {
-            reg.update();
-            console.log(
-              "[PWA Builder] Service worker has been registered for scope: " +
-              reg.scope
-            );
-          });
-      }
-    }
-  </script>
-
   <link rel="dns-prefetch preconnect" href="https://fonts.gstatic.com">
   <link rel="dns-prefetch preconnect" href="https://fonts.google.com">
   <link rel="preload" as="image/png" href='https://img.icons8.com/flat_round/64/000000/share--v1.png'>
@@ -34,8 +10,8 @@
   <meta property="og:description" content="Read top national and international headlines on Headliner." />
   <meta property="og:site_name" content="Headliner" />
   <meta property="og:type" content="article" />
-  <meta property="og:image" content="https://soulsam480.github.io/headliner/assets/img/icons-512.png" />
-  <meta property="og:url" content="https://soulsam480.github.io/headliner" />
+  <meta property="og:image" content="https://headliner.cf/assets/img/icons-512.png" />
+  <meta property="og:url" content="https://headliner.cf" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -49,27 +25,9 @@
   <meta name="application-name" content="Headliner" />
   <meta name="msapplication-TileColor" content="#da532c" />
   <meta name="theme-color" content="#ffffff" />
-  <title>Headliner | Read Top Regional Headlines</title>
-  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+  <title>Headliner | About</title>
   <script src="./assets/js/jquery-3.4.1.slim.min.js"></script>
-  <script>
-    var OneSignal = window.OneSignal || [];
-    OneSignal.push(function () {
-      OneSignal.init({
-        appId: "8e22c8ef-621e-4976-a67e-014e6c75cf29",
-        promptOptions: {
-          /* These prompt options values configure both the HTTP prompt and the HTTP popup. */
-          /* actionMessage limited to 90 characters */
-          actionMessage: "We'd like to show you notifications for the latest news and updates.",
-          /* acceptButtonText limited to 15 characters */
-          acceptButtonText: "ALLOW",
-          /* cancelButtonText limited to 15 characters */
-          cancelButtonText: "NO THANKS"
-        }
-      });
-      OneSignal.showSlidedownPrompt();
-    });
-  </script>
+
 </head>
 
 <body>
@@ -97,7 +55,7 @@
     <!--the top header for main section pages-->
     <nav style="text-align: center;">
       <span class="nav-link" style="float: left;">
-        <h2>Headliner</h2>
+        <h2>About</h2>
       </span>
       <span class="nav-link" style="float: right;">
         <label class="switch">
@@ -114,7 +72,7 @@
     <nav style="text-align: center;" class="main-nav" id="navbar">
 
       <span>
-        <a href="infiliner.html" class="nav-link2">Infi-News</a>
+        <a href="index.html" class="nav-link2">Headliner</a>
       </span>
       <span>|</span>
       <span>
@@ -130,7 +88,7 @@
     <nav class="main-bt">
 
       <span>
-        <a href="infiliner.html" class="nav-link2">Infi-News</a>
+        <a href="index.html" class="nav-link2">Headliner</a>
       </span>
       <span>|</span>
       <span>
@@ -155,12 +113,14 @@
           </tr>
           <tr>
             <td><a href="./cat/toi.html">TOI</a></td>
-            <td><a href="about.html">About</a></td>
-          </tr>
+            <td>
+              <a href="about.html">About</a>      
+            </td>          </tr>
           <tr>
             <td><a href="./cat/ndtv.html">NDTV</a></td>
-            <td><a href="contact.html">Contact</a></td>
-          </tr>
+            <td>
+              <a href="contact.html">Contact</a>      
+            </td>          </tr>
           <tr>
             <td><a href="./cat/th.html">The Hindu</a></td>
           </tr>
@@ -177,17 +137,77 @@
         </table>
       </div>
     </div>
-    <div>
-      <ul id="news">
-      </ul>
-    </div>
-
-
-    <p style="text-align: center; font-weight:700;">
-      With 🧡 from
-      <a href="https://sambitsahoo2.cf">Sambit Sahoo</a>
-      WITH <a href="https://newsapi.org">NewsApi.Org </a>
-    </p>
+    <div class="about">
+        <h3 class="ul-head">What is Headliner ?</h3>
+        <p>
+            Headliner is a <b>PWA(Progressive Web App)</b> which collects top news articles from prominent news providers
+             in various categories. The simple UI and PWA functionality make Headliner the most versatile news application.
+              It loads blazing fast with only <b>2 seconds</b> loading time and has offline viewing capability.
+        </p>
+        <br>
+        <h3 class="ul-head">Sources</h3>
+           <table style="width:100%">
+               <th>International</th>
+               <th>National</th>
+               <tr>
+                   <td>The Guardian</td>
+                   <td>Times of India</td>
+               </tr>
+               <tr>
+                   <td>BBC</td>
+                   <td>India Today</td>
+               </tr>
+               <tr>
+                   <td>New York Times</td>
+                   <td>DNA India</td>
+               </tr>
+               <tr>
+                   <td>The Verge</td>
+                   <td>NDTV News</td>
+               </tr>
+               <tr>
+                   <td>Tech Crunch</td>
+                   <td>The Hindu</td>
+               </tr>
+               <tr>
+                   <td>ARS Technica</td>
+                   <td>Beebom</td>
+               </tr>
+               <tr>
+                <td>NYT Tech</td>
+                <td>Gadgets 360</td>
+            </tr>
+            <tr>
+                <td>GSMArena</td>
+            </tr>
+           </table> 
+        
+        <br>
+        <h3 class="ul-head">Copyright</h3>
+        <p>
+            Headliner doesn't <b>monetize</b> or <b>commercialize</b> any of the contents retrieved from the above news service providers.
+            This is a <b>purely hobby project</b> and we respect the efforts of all the professionals involved in curating valuable news.
+            We respect the hard work of providers and <b>we don't seek to gain any type of profit by any means</b> from this application.
+            We have tried our best to provide credits of the news articles to their respective providers by all means possible. For any issues regarding copyright please <a href="contact.html"><u><b>contact us</b></u></a>
+        </p>
+        <br>
+        <h3 class="ul-head">
+            Source Code
+        </h3>
+        <p>
+            Headliner is built using Javascript, Jquery, HTML and CSS. This is an open source project and the source code is available
+            <a href="https://github.com/soulsam480/headliner"><u><b>HERE</b></u></a>. Feel free to clone the repository.
+        </p>
+        <h3 class="ul-head">
+            Who is Behind ?
+        </h3>
+        <p>
+         Hii, I'm <a href="https://sambitsahoo2.cf"><u><b>Sambit</b></u></a>. I'm an intermediate in javascript and love to create stuff. To know more about me please visit my <a href="https://sambitsahoo2.cf/about"><u><b>blog</b></u></a> I developed Headliner primarily as a hobby project to learn how to use APIs. Later after I learned
+          how to use RSS feeds, I added another page Infilner to this project which essentially showed an infinite scroll of news
+          articles. Headliner was a PWA already and later during the lockdown the idea to categorize the news articles came. I developed it as a complete platform for reading news in
+          hurry. I hope this helped you someway.
+        </p>
+        </div>
     <br>
     <br>
   </div>
@@ -197,6 +217,5 @@
 <script src="./assets/js/common.js">
 
 </script>
-<script src="./assets/js/index.js"></script>
 
 </html>

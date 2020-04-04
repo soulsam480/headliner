@@ -118,12 +118,14 @@
           </tr>
           <tr>
             <td><a href="toi.html">TOI</a></td>
-            <td>About</td>
-          </tr>
+            <td>
+              <a href="../about.html">About</a>      
+            </td>          </tr>
           <tr>
             <td><a href="ndtv.html">NDTV</a></td>
-            <td>Contact</td>
-          </tr>
+            <td>
+              <a href="../contact.html">Contact</a>      
+            </td>          </tr>
            <tr>
             <td><a href="th.html" style="font-weight: bold;">The Hindu</a></td>
           </tr>
@@ -174,7 +176,6 @@
         if (result.error) {
         } else {
             var entries = result.feed.entries;
-            console.log(entries)
             for (var i = 0; i < entries.length; i++) {
                 var entry = entries[i];
                 return entries.map(entry => {
