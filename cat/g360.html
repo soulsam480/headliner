@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="manifest" href="../assets/manifest.json" />
+  <script src="../assets/js/jquery-3.4.1.slim.min.js"></script>
+  <script src="../assets/js/feednami-client-v1.1.js"></script>
+  <meta property="og:title" content="Headliner | Read top Headlines." />
+  <meta property="og:description" content="Read top national and international headlines on Headliner." />
+  <meta property="og:site_name" content="Headliner" />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="https://soulsam480.github.io/headliner/assets/img/icons-512.png" />
+  <meta property="og:url" content="https://soulsam480.github.io/headliner" />
+  <meta chArset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicon-16x16.png" />
+  <link rel="mask-icon" href="./assets/img/safari-pinned-tab.svg" color="#5bbad5" />
+  <link rel="stylesheet" href="../assets/style.css" />
+  <link rel="stylesheet" href="../assets/menustyle.css" />
+  <meta name="apple-mobile-web-app-title" content="Headliner" />
+  <meta name="application-name" content="Headliner" />
+  <meta name="msapplication-TileColor" content="#da532c" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>Headliner Chanel | Gadgets 360</title>
+  <style>
+    html,
+    body {
+      overflow-x: hidden;
+    }
+
+    #news li a {
+      background-color: none !important;
+      color: black;
+    }
+
+    .darkmode #news li a {
+      background-color: none !important;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content">
+    <div class="ad2hs-prompt">
+      <div class="modal-content">
+        <img src="../assets/img/android-chrome-192x192.png" alt="" style="width:30%;margin:auto;padding:20px 0 0 0" />
+        <p style="padding: 10px 20px 5px 20px; font-size:20px;">
+          Add Headliner to your Home Screen ?
+        </p>
+        <p style="padding: 0 30px 5px 30px; font-size:15px;  line-height:1.5em">
+          Get to Headliner quickly by adding it to your home screen.
+        </p>
+        <hr />
+        <p id="add" style="font-weight: bold;color: rgb(8, 142, 252);cursor:pointer;">
+          Add to Home Screen
+        </p>
+        <hr />
+        <p onclick="Cancel()" style="font-weight: bold;color: red; cursor:pointer;">
+          cancel
+        </p>
+      </div>
+    </div>
+    <nav style="text-align: center;">
+      <span class="nav-link" style="float: left;">
+        <h2>Gadgets 360</h2>
+      </span>
+      <span class="nav-link" style="float: right;">
+        <label class="switch">
+          <input type="checkbox" onclick="dToggle()" />
+          <span class="slider round"></span>
+        </label>
+      </span>
+    </nav>
+    <br />
+    <hr />
+    <nav style="text-align: center;" class="main-nav" id="navbar">
+
+      <span>
+        <a href="../index.html" class="nav-link2">Headliner</a>
+      </span>
+      <span>|</span>
+      <span>
+        <a href="../infiliner.html" class="nav-link2">Infi-News</a>
+      </span>
+      <span>|</span>
+      <span>
+        <a href="../infitech.html" class="nav-link2">Infi-Tech</a>
+      </span>
+
+    </nav>
+      <!-- The bottom nav on mobile phones. display none in desktop-->
+      <nav  class="main-bt">
+     
+        <span>
+          <a href="../index.html" class="nav-link2">Headliner</a>
+        </span>
+        <span>|</span>
+        <span>
+          <a href="../infiliner.html" class="nav-link2">Infi-News</a>
+        </span>
+        <span>|</span>
+        <span>
+          <a href="../infitech.html" class="nav-link2">Infi-Tech</a>
+        </span>
+  
+      </nav>
+     <!-- the feature nav starts here will be same across whole page-->
+     <a class="hamburger menu-btn"  href="javascript:void(0)"><span></span></a>
+
+     <div class="main-menu-wrap">
+      <div class="main-menu">
+        <table>
+          <tr>
+            <th>Explore</th>
+            <th>More</th>
+          </tr>
+          <tr>
+            <td><a href="mash.html">NYT Tech</a></td>
+            <td>Contact</td>
+          </tr>
+          <tr>
+            <td><a href="ars.html">Ars Technica</a></td>
+          </tr>
+          <tr>  
+            <td><a href="g360.html" style="font-weight: bold;" >Gadgets 360</a></td>
+          </tr>
+          <tr>
+            <td><a href="gsm.html">GSMArena</a></td>
+          </tr>
+         
+        </table>
+      </div>
+    </div>
+    <div>
+        <h3 class="ul-head">Gadgets 360</h3>
+      <ul id="verge" class="techul"></ul>
+
+    </div>
+
+    <p style="text-align: center; font-weight:700;">
+      With 🧡 from
+      <a href="https://sambitsahoo2.cf">Sambit Sahoo</a>
+    </p>
+    <br>
+    <br>
+  </div>
+</body>
+
+<script src="../assets/js/common.js">
+
+</script>
+<script>    
+    $(document).ready(() => {
+    const url = "https://gadgets.ndtv.com/rss/feeds";
+    const ul = document.getElementById("verge");
+
+    function createNode(element) {
+        return document.createElement(element); // Create the type of element you pass in the parameters
+    }
+
+    function append(parent, el) {
+        return parent.appendChild(el); // Append the second parameter(element) to the first one
+    }
+
+    feednami.load(url, result => {
+        if (result.error) {
+        } else {
+            var entries = result.feed.entries;
+            for (var i = 0; i < entries.length; i++) {
+                var entry = entries[i];
+                return entries.map(entry => {
+                    let li = createNode("li");
+                    p = createNode("p");
+                    link = createNode("a");
+                    line = createNode("span");
+                    h4 = createNode("h3");
+                    link4 = createNode("a");
+
+                    link4.setAttribute(
+                        "onclick",
+                        "if (navigator.share) {navigator.share({title:'" +
+                        entry.title +
+                        "',text:'shared from Headliner',url: '" +
+                        entry.link +
+                        "',}).then(() => console.log('Successful share'))}"
+                    );
+                    link4.innerHTML = `${'<img src="https://img.icons8.com/flat_round/64/000000/share--v1.png"/>'}`;
+                    link4.setAttribute("class", "washare");
+                    line.innerHTML = `${"<hr>"}`;
+                    h4.innerHTML = `${entry.title + "  <small>-Gadgets 360</small>"}`;
+                    p.innerHTML = `${entry.summary}`;
+                    link.setAttribute("href", entry.link);
+                    link.setAttribute("target", "_blank");
+                    append(li, h4);
+                    append(li, link);
+                    append(link, p);
+                    append(li, link4);
+                    append(li, line);
+                    append(ul, li);
+                });
+            }
+        }
+    });
+}); 
+</script>
+
+</html>
+
+</html>

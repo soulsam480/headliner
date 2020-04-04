@@ -122,7 +122,7 @@ li {
 /* The CSS code for the toggle switch*/
 .switch {
   position: relative;
-  width: 60px;
+  width: 53px;
   display: inline-block;
   height: 28px;
 }
@@ -178,7 +178,7 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
-  content: "☾";
+  content: url(./img/moon.png);
   color: black;
 }
 
@@ -307,4 +307,9 @@ input:checked + .slider:before {
 th{
   background-color:rgb(53, 53, 53) ;
   color: white;
+}
+.nytimg{
+  width:100%;
+  height: auto;
+  margin: auto;
 }
