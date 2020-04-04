@@ -1,4 +1,4 @@
-var cacheName = "static-v7";
+var cacheName = "static-v8";
 
 // Cache our known resources during install
 self.addEventListener("install", event => {
@@ -40,6 +40,7 @@ self.addEventListener("install", event => {
           "./cat/g360.html",
           "./cat/gsm.html",
           "./cat/mash.html",
+          "about.html",
           "offline.html",
           "privacy-policy.html"
         ])
