@@ -1,4 +1,4 @@
-var cacheName = "static-v6";
+var cacheName = "static-v7";
 
 // Cache our known resources during install
 self.addEventListener("install", event => {
@@ -21,6 +21,7 @@ self.addEventListener("install", event => {
           "./assets/js/infil.js",
           "./assets/js/common.js",
           "./assets/js/lazyload.min.js",
+          "./assets/img/moon.png",
           "./assets/img/android-chrome-192x192.png",
           "./assets/img/apple-touch-icon.png",
           "./assets/img/favicon-16x16.png",
