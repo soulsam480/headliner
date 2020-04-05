@@ -89,3 +89,13 @@ $(function () {
     }
   });
 });
+$(document).ready(function(){
+
+	$("#dp1").hover(function(){
+		$("#dpc1").toggleClass("show");
+  });
+  
+  $("#dp2").hover(function(){
+		$("#dpc2").toggleClass("show2");
+  });
+});
