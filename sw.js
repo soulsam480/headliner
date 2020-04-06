@@ -1,4 +1,4 @@
-var cacheName = "static-v9";
+var cacheName = "static-v10";
 
 // Cache our known resources during install
 self.addEventListener("install", event => {
@@ -41,6 +41,7 @@ self.addEventListener("install", event => {
           "./cat/gsm.html",
           "./cat/mash.html",
           "about.html",
+          "contact.html",
           "offline.html",
           "privacy-policy.html",
           "OneSignalSDKUpdaterWorker.js",
