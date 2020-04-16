@@ -34,11 +34,7 @@ $(document).ready(() => {
 
           link4.setAttribute(
             "onclick",
-            "if (navigator.share) {navigator.share({title:'" +
-              entry.title +
-              "',text:'shared from Headliner',url: '" +
-              entry.link +
-              "',}).then(() => console.log('Successful share'))}"
+            "if (navigator.share) {navigator.share({title:'"+entry.title+"',text:'"+entry.description+"',url:'"+entry.link +"',}).then(() => console.log('Successful share'))}"
           );
           link4.innerHTML = `${' <img src="https://img.icons8.com/flat_round/64/000000/share--v1.png"/>'}`;
           link4.setAttribute("class", "washare");
@@ -81,11 +77,8 @@ $(document).ready(() => {
 
           link4.setAttribute(
             "onclick",
-            "if (navigator.share) {navigator.share({title:'" +
-              entry.title +
-              "',text:'shared from Headliner',url: '" +
-              entry.link +
-              "',}).then(() => console.log('Successful share'))}"
+            "if (navigator.share) {navigator.share({title:'"+entry.title+"',text:'"+entry.description+"',url:'"+entry.link+"',}).then(() => console.log('Successful share'))}"
+
           );
           link4.innerHTML = `${' <img src="https://img.icons8.com/flat_round/64/000000/share--v1.png"/>'}`;
           link4.setAttribute("class", "washare");
@@ -124,12 +117,8 @@ $(document).ready(() => {
 
           link4.setAttribute(
             "onclick",
-            "if (navigator.share) {navigator.share({title:'" +
-              entry.title +
-              "',text:'shared from Headliner',url: '" +
-              entry.link +
-              "',}).then(() => console.log('Successful share'))}"
-          );
+            "if (navigator.share) {navigator.share({title:'"+entry.title+"',text:'"+entry.description+"',url:'"+entry.link+"',}).then(() => console.log('Successful share'))}"
+            );
           link4.innerHTML = `${' <img src="https://img.icons8.com/flat_round/64/000000/share--v1.png"/>'}`;
           link4.setAttribute("class", "washare");
           line.innerHTML = `${"<hr>"}`;

@@ -11,10 +11,10 @@ function append(parent, el) {
   return parent.appendChild(el); // Append the second parameter(element) to the first one
 }
 //fetch() to get news from api
-function getData() {
+$(document).ready(() => {
   fetch(url)
     .then(resp => resp.json()) // Transform the data into json
-    .then(function(data) {
+    .then(function (data) {
       let authors = data.articles;
       return authors.map(item => {
         let li = createNode("li"),
@@ -27,11 +27,7 @@ function getData() {
 
         link4.setAttribute(
           "onclick",
-          "if (navigator.share) {navigator.share({title:'" +
-            item.title +
-            "',text:'shared from Headliner',url: '" +
-            item.url +
-            "',}).then(() => console.log('Successful share'))}"
+          "if (navigator.share) {navigator.share({title:'"+item.title+"',text:'"+item.description+"',url:'"+item.url+"',}).then(() => console.log('share is successful'))}"
         );
         link4.innerHTML = `${'<img src="https://img.icons8.com/flat_round/64/000000/share--v1.png"/>'}`;
         link.setAttribute("href", item.url);
@@ -52,6 +48,5 @@ function getData() {
         append(ul, li);
       });
     });
-}
+});
 
-window.onload = getData();
