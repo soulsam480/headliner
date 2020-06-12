@@ -12,7 +12,7 @@ function append(parent, el) {
 }
 //fetch() to get news from api
 $(document).ready(() => {
-  fetch(url)
+  fetch(url,{mode:'cors'})
     .then(resp => resp.json()) // Transform the data into json
     .then(function (data) {
       let authors = data.articles;
