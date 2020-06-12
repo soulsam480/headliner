@@ -1,4 +1,4 @@
-var cacheName = "static-v13";
+var cacheName = "static-v14";
 
 // Cache our known resources during install
 self.addEventListener("install", event => {
@@ -100,4 +100,3 @@ self.addEventListener("fetch", event => {
       });
   }
 });
-
