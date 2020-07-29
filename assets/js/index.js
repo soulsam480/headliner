@@ -10,8 +10,8 @@ function append(parent, el) {
   return parent.appendChild(el); // Append the second parameter(element) to the first one
 }
 //fetch() to get news from api
-$(document).ready(() => {
-  fetch(url, {
+$(document).ready(async () => {
+  await fetch(url, {
     mode: "cors",
     headers: {
       "X-Requested-With": "XMLHttpRequest",
