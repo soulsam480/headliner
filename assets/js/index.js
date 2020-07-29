@@ -1,6 +1,5 @@
-
 const url =
-  "https://newsapi.org/v2/top-headlines?country=in&pageSize=100&apiKey=05aefe5393fc46d7a6e21a27b16718c0"; // Get 10 random users
+  "http://newsapi.org/v2/top-headlines?country=in&pageSize=100&apiKey=05aefe5393fc46d7a6e21a27b16718c0"; // Get 10 random users
 const ul = document.getElementById("news");
 //code for creation of elements for the data display
 function createNode(element) {
@@ -13,10 +12,10 @@ function append(parent, el) {
 //fetch() to get news from api
 $(document).ready(() => {
   fetch(url)
-    .then(resp => resp.json()) // Transform the data into json
+    .then((resp) => resp.json()) // Transform the data into json
     .then(function (data) {
       let authors = data.articles;
-      return authors.map(item => {
+      return authors.map((item) => {
         let li = createNode("li"),
           h4 = createNode("h3");
         p2 = createNode("p");
@@ -27,7 +26,13 @@ $(document).ready(() => {
 
         link4.setAttribute(
           "onclick",
-          "if (navigator.share) {navigator.share({title:'"+item.title+"',text:'"+item.description+"',url:'"+item.url+"',}).then(() => console.log('share is successful'))}"
+          "if (navigator.share) {navigator.share({title:'" +
+            item.title +
+            "',text:'" +
+            item.description +
+            "',url:'" +
+            item.url +
+            "',}).then(() => console.log('share is successful'))}"
         );
         link4.innerHTML = `${'<img src="https://img.icons8.com/flat_round/64/000000/share--v1.png"/>'}`;
         link.setAttribute("href", item.url);
@@ -49,4 +54,3 @@ $(document).ready(() => {
       });
     });
 });
-
