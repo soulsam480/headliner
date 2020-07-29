@@ -14,7 +14,7 @@ $(document).ready(async () => {
   await fetch(url, {
     mode: "cors",
     headers: {
-      "X-Requested-With": "XMLHttpRequest",
+      "x-requested-with": "XMLHttpRequest",
     },
   })
     .then((resp) => resp.json()) // Transform the data into json
