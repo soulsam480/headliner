@@ -1,5 +1,5 @@
-const url =
-  "https://cors-anywhere.herokuapp.com/http://newsapi.org/v2/top-headlines?country=in&pageSize=100&apiKey=05aefe5393fc46d7a6e21a27b16718c0"; // Get 10 random users
+import key from "./cred";
+const url = `https://cors-anywhere.herokuapp.com/http://newsapi.org/v2/top-headlines?country=in&pageSize=100&apiKey=${key}`; // Get 10 random users
 const ul = document.getElementById("news");
 //code for creation of elements for the data display
 function createNode(element) {
